@@ -1,0 +1,421 @@
+﻿@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Party!</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://amc-theatres-res.cloudinary.com/amc-cdn/static/images/favicon/apple-touch-icon.png?v=2">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://amc-theatres-res.cloudinary.com/amc-cdn/static/images/favicon/favicon-32x32.png?v=2">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://amc-theatres-res.cloudinary.com/amc-cdn/static/images/favicon/favicon-16x16.png?v=2">
+        <link rel="manifest" href="https://amc-theatres-res.cloudinary.com/raw/upload/amc-cdn/static/images/favicon/site.webmanifest?v=2">
+        <link rel="mask-icon" href="https://amc-theatres-res.cloudinary.com/amc-cdn/static/images/favicon/safari-pinned-tab.svg?v=2" color="#5bbad5">
+        <link rel="shortcut icon" href="https://amc-theatres-res.cloudinary.com/amc-cdn/static/images/favicon/favicon.ico?v=2">
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="msapplication-config" content="https://amc-theatres-res.cloudinary.com/raw/upload/amc-cdn/static/images/favicon/browserconfig.xml?v=2">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="apple-itunes-app" content="app-id=509199715">
+        <title>Movie Times at AMC Theatres</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="https://amc-theatres-res.cloudinary.com/raw/upload/amc-cdn/static/css/main-3386c292.css">
+        <link rel="stylesheet" type="text/css" href="https://amc-theatres-res.cloudinary.com/raw/upload/amc-cdn/static/css/content-300478f2.css">
+        <link rel="stylesheet" type="text/css" href="https://amc-theatres-res.cloudinary.com/raw/upload/amc-cdn/static/css/background-images-77bb3083.css">
+        <script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+        <script src="https://rules.quantcount.com/rules-p-4cfbaq_FtKDQk.js" async=""></script>
+        <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script>
+        <script type="text/javascript" async="" src="https://secure.quantserve.com/quant.js"></script>
+        <script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+        <script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+        <script type="text/javascript" src="https://bam-cell.nr-data.net/1/a7d0d0c6e1?a=30395146&amp;v=1184.ab39b52&amp;to=MlZSNkoHW0EAVU1RDgscdRpIFFBBElxKFyYgZx9N&amp;rst=2809&amp;ck=1&amp;ref=https://www.amctheatres.com/&amp;ap=106.362919&amp;be=448&amp;fe=2740&amp;dc=830&amp;tt=15f9cf8dd63cc90&amp;af=err,xhr,stn,ins,spa&amp;perf=%7B%22timing%22:%7B%22of%22:1604867742681,%22n%22:0,%22f%22:8,%22dn%22:22,%22dne%22:22,%22c%22:22,%22s%22:38,%22ce%22:110,%22rq%22:110,%22rp%22:259,%22rpe%22:294,%22dl%22:266,%22di%22:831,%22ds%22:831,%22de%22:831,%22dc%22:2740,%22l%22:2740,%22le%22:2742%7D,%22navigation%22:%7B%7D%7D&amp;fp=613&amp;fcp=613&amp;jsonp=NREUM.setToken"></script>
+        <script src="https://js-agent.newrelic.com/nr-spa-1184.min.js"></script>
+        <script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
+        <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-696440713&amp;l=dataLayer&amp;cx=c"></script>
+        <script type="text/javascript" async="" src="https://www.google-analytics.com/gtm/js?id=GTM-WHZQMVW&amp;t=gtm3&amp;cid=720158106.1602372124"></script>
+        <script type="text/javascript" async="" src="//siteimproveanalytics.com/js/siteanalyze_81956.js"></script>
+        <script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+        <script type="text/javascript" async="" src="//bat.bing.com/bat.js"></script>
+        <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+        <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+        <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
+        <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/1AZgzF1o3OlP73CVr69UmL65/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-jSGc1DJfUHBT7BEgzYTQ48gjFDkqthDMj6JxtRjMZ5vRWJTCXgZR/6dFFLoyp6xc"></script>
+        <script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-52MRS6"></script>
+        <script charset="utf-8" src="/js/common.3da5f4fad3b4cc5dce12.js"></script>
+        <script charset="utf-8" src="/js/core.21485768b5460592e902.js"></script>
+        <script charset="utf-8" src="/js/carousel.5084892055629c4cf7c4.js"></script>
+        <script charset="utf-8" src="/js/movies.30ce15b49e2d1f45d875.js"></script>
+        <script id="google-recaptcha-v3" src="https://www.google.com/recaptcha/api.js?render=6LfIALUUAAAAANFDCluzb-m1FLbBKkQwvsYbglIS"></script>
+        <script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/800592284/?random=1604867745084&amp;cv=9&amp;fst=1604867745084&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1050&amp;u_w=1680&amp;u_ah=1050&amp;u_aw=1680&amp;u_cd=30&amp;u_his=2&amp;u_tz=-360&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=4&amp;gtm=2wgas1&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.amctheatres.com%2F&amp;tiba=AMC%20Theatres%20-%20movie%20times%2C%20movie%20trailers%2C%20buy%20tickets%20and%20gift%20cards.&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+        <script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/696440713/?random=1604867745188&amp;cv=9&amp;fst=1604867745188&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1050&amp;u_w=1680&amp;u_ah=1050&amp;u_aw=1680&amp;u_cd=30&amp;u_his=2&amp;u_tz=-360&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=4&amp;gtm=2oaas1&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fwww.amctheatres.com%2F&amp;tiba=AMC%20Theatres%20-%20movie%20times%2C%20movie%20trailers%2C%20buy%20tickets%20and%20gift%20cards.&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+        <script charset="utf-8" src="/js/showtimes.29635a4bfd29434f6ed0.js"></script>
+        <script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/800592284/?random=1604867748876&amp;cv=9&amp;fst=1604867748876&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1050&amp;u_w=1680&amp;u_ah=1050&amp;u_aw=1680&amp;u_cd=30&amp;u_his=3&amp;u_tz=-360&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=4&amp;gtm=2wgas1&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.amctheatres.com%2Fshowtimes%3Frel%3Dsafe-and-clean_reopening_hp_hero&amp;tiba=AMC%20Theatres%20-%20movie%20times%2C%20movie%20trailers%2C%20buy%20tickets%20and%20gift%20cards.&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+        <script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/800592284/?random=1604867749634&amp;cv=9&amp;fst=1604867749634&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1050&amp;u_w=1680&amp;u_ah=1050&amp;u_aw=1680&amp;u_cd=30&amp;u_his=3&amp;u_tz=-360&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=4&amp;gtm=2wgas1&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.amctheatres.com%2Fshowtimes%2Fall%2F2020-11-08%2Famc-irving-mall-14%2Fall%3Frel%3Dsafe-and-clean_reopening_hp_hero&amp;tiba=AMC%20Theatres%20-%20movie%20times%2C%20movie%20trailers%2C%20buy%20tickets%20and%20gift%20cards.&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+        <link href="https://www.amctheatres.com/showtimes/all/2020-11-08/amc-irving-mall-14/all/90456841" rel="canonical" data-rh="true">
+        <script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/800592284/?random=1604867753068&amp;cv=9&amp;fst=1604867753068&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1050&amp;u_w=1680&amp;u_ah=1050&amp;u_aw=1680&amp;u_cd=30&amp;u_his=4&amp;u_tz=-360&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=4&amp;gtm=2wgas1&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.amctheatres.com%2Fshowtimes%2Fall%2F2020-11-08%2Famc-irving-mall-14%2Fall%2F90456841&amp;tiba=Movie%20Times%20at%20AMC%20Theatres&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+    </head>
+</head>
+<body>
+    <div>
+        <div class="text-center">
+            <h3>We're going to have an exciting party. </h3>
+            <h4>(To do: sell it better. Add pictures or something.)</h4>
+            <a asp-action="RsvpForm" class="btn btn-primary">RSVP Now</a>
+        </div>
+    </div>
+</body>
+
+<div class="auditorium">
+    <div class="scaler">
+        <button tabindex="0" type="button" class="scaler__toggle Btn--unstyled" aria-label="Zoom in and out icon.">
+            <i class="icon_minimize  scaler__toggle-icon" style="background-image: none;">
+                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_minimize" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
+                    <path d="M18.838 26.747a1.237 1.237 0 0 0 0-.59 1.237 1.237 0 0 0-.59 0 1.237 1.237 0 0 0-.422-.422H1.406a1.406 1.406 0 1 0 0 2.812h12.99L1.434 41.568a1.412 1.412 0 1 0 1.996 1.997l12.99-12.993v13.021a1.406 1.406 0 1 0 2.811 0V27.17a1.237 1.237 0 0 0-.393-.422zM43.58 16.425H30.59L43.58 3.432a1.422 1.422 0 1 0-2.024-1.997l-12.99 12.966V1.407a1.406 1.406 0 1 0-2.812 0v16.425a1.237 1.237 0 0 0 .422.422 1.237 1.237 0 0 0 0 .59 1.406 1.406 0 0 0 1.012.422H43.58a1.42 1.42 0 1 0 0-2.84z"></path>
+                </svg>
+            </i>
+        </button>
+        <div class="scaler__content" style="height: 473px;">
+            <div style="transform: scale(0.591049); transform-origin: center top 0px;">
+                <div class="">
+                    <span class="screen__text">screen</span>
+                    <div class="screen" tabindex="-1">
+                        <div class="screen">
+                            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 670 386.5" preserveAspectRatio="none">
+                                <radialGradient id="gradient" cx="336.83" cy="284.39" r="473.49" gradientTransform="translate(0 -398)" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stop-color="#fff" stop-opacity=".97"></stop>
+                                    <stop offset=".04" stop-color="#fff" stop-opacity=".91"></stop>
+                                    <stop offset=".25" stop-color="#fff" stop-opacity=".59"></stop>
+                                    <stop offset=".44" stop-color="#fff" stop-opacity=".34"></stop>
+                                    <stop offset=".6" stop-color="#fff" stop-opacity=".15"></stop>
+                                    <stop offset=".79" stop-color="#fff" stop-opacity="0"></stop>
+                                </radialGradient>
+                                <path class="gradient" d="M0 386.5s73.5-49.2 335-49.2 335 49.2 335 49.2V45.8S584.5 4.2 333.3 4.2C102.6 4.3 0 45.8 0 45.8v340.7z"></path>
+                                <path class="svg--fill-white" d="M0 48.5S97.8 7 335 7c238.6 0 335 41.5 335 41.5v-5.4S578.3 1.5 335 1.5 0 43.2 0 43.2v5.3z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div tabindex="0" aria-label="Seating Layout">
+                    <div tabindex="0" aria-label="Movie Seats">
+                        <div class="layout">
+                            <ul class="layout__grid">
+                                <li class="layout__row" tabindex="0" aria-expanded="false">
+                                    <span class="u-screenreader-only">Row 1 - 50 of 63 seats available.Press Space to expand.</span>
+                                    <ul class="layout__row__columns">
+                                        <li class="layout__column">
+                                            <div aria-label="Row 1, Seat 1 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">A9</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 1, Seat 2 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">A8</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 1, Seat 3 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">A7</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 1, Seat 4 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">A6</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 1, Seat 5 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">A5</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 1, Seat 6 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">A4</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 1, Seat 7 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">A3</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 1, Seat 8 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">A2</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 1, Seat 9 - Can reserve." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">A1</span></div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="layout__row" tabindex="0" aria-expanded="false">
+                                    <span class="u-screenreader-only">Row 2 - 50 of 63 seats available.Press Space to expand.</span>
+                                    <ul class="layout__row__columns">
+                                        <li class="layout__column">
+                                            <div aria-label="Empty space" aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--empty-space layout__seat--regular layout__seat--unavailable" role="" tabindex="-1"><span aria-hidden="false" class="layout__seat__name"></span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Empty space" aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--empty-space layout__seat--regular layout__seat--unavailable" role="" tabindex="-1"><span aria-hidden="false" class="layout__seat__name"></span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 2, Seat 3 - Wheelchair Accessible." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1">
+                                                <i class="layout__seat__icon icon_accessible" style="background-image: none;">
+                                                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_accessible" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
+                                                        <circle cx="8.9" cy="7.988" r="4.47" transform="rotate(-19.96)"></circle>
+                                                        <path d="M44.404 34.258a1.856 1.856 0 0 0-2.418-.9l-2.586 1.21-4.612-10.657a1.856 1.856 0 0 0-2.305-1.012l-10.881 3.796-5.848-14.846a1.856 1.856 0 0 0-3.459 1.35l6.495 16.504a1.856 1.856 0 0 0 2.334 1.069l5.173-1.8a11.247 11.247 0 0 1-9.784 12.174 11.247 11.247 0 0 1-6.636-21.34 1.856 1.856 0 1 0-1.63-3.29 15.07 15.07 0 0 0 6.832 28.454 15.408 15.408 0 0 0 1.912 0A15.07 15.07 0 0 0 30.037 28.1a1.63 1.63 0 0 0-.14-.28l2.192-.76 4.64 10.825a1.856 1.856 0 0 0 2.502.956l4.33-2.024a1.856 1.856 0 0 0 .843-2.559z"></path>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 2, Seat 4 - Wheelchair Accessible." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1">
+                                                <i class="layout__seat__icon icon_accessible" style="background-image: none;">
+                                                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_accessible" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
+                                                        <circle cx="8.9" cy="7.988" r="4.47" transform="rotate(-19.96)"></circle>
+                                                        <path d="M44.404 34.258a1.856 1.856 0 0 0-2.418-.9l-2.586 1.21-4.612-10.657a1.856 1.856 0 0 0-2.305-1.012l-10.881 3.796-5.848-14.846a1.856 1.856 0 0 0-3.459 1.35l6.495 16.504a1.856 1.856 0 0 0 2.334 1.069l5.173-1.8a11.247 11.247 0 0 1-9.784 12.174 11.247 11.247 0 0 1-6.636-21.34 1.856 1.856 0 1 0-1.63-3.29 15.07 15.07 0 0 0 6.832 28.454 15.408 15.408 0 0 0 1.912 0A15.07 15.07 0 0 0 30.037 28.1a1.63 1.63 0 0 0-.14-.28l2.192-.76 4.64 10.825a1.856 1.856 0 0 0 2.502.956l4.33-2.024a1.856 1.856 0 0 0 .843-2.559z"></path>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 2, Seat 5 - Companion Seat." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1">
+                                                <i class="layout__seat__icon icon_companion" style="background-image: none;">
+                                                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_companion" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
+                                                        <path d="M24.413 10.347h4.33v4.303a.984.984 0 0 0 .956.984h.338a.984.984 0 0 0 .984-.984v-4.303h4.359a.984.984 0 0 0 .984-.956v-.478a.984.984 0 0 0-.984-.984h-4.33V3.626a.984.984 0 0 0-1.013-.984h-.394a.984.984 0 0 0-.956.984V7.93h-4.274a.984.984 0 0 0-.985.984v.45a.984.984 0 0 0 .985.984z"></path>
+                                                        <circle cx="8.883" cy="7.983" r="4.471" transform="rotate(-19.96)"></circle>
+                                                        <path d="M44.407 34.278a1.856 1.856 0 0 0-2.475-.9l-2.587 1.21-4.556-10.659a1.856 1.856 0 0 0-2.306-1.012l-10.882 3.796-5.85-14.847a1.856 1.856 0 1 0-3.458 1.35l6.496 16.506a1.856 1.856 0 0 0 2.334 1.069l5.174-1.8a11.248 11.248 0 1 1-16.423-9.167 1.856 1.856 0 1 0-1.715-3.29 15.073 15.073 0 1 0 21.878 11.585 1.631 1.631 0 0 0-.14-.28l2.193-.76 4.64 10.827a1.856 1.856 0 0 0 2.502.956l4.331-2.025a1.856 1.856 0 0 0 .844-2.559z"></path>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 2, Seat 6 - Companion Seat." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1">
+                                                <i class="layout__seat__icon icon_companion" style="background-image: none;">
+                                                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_companion" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
+                                                        <path d="M24.413 10.347h4.33v4.303a.984.984 0 0 0 .956.984h.338a.984.984 0 0 0 .984-.984v-4.303h4.359a.984.984 0 0 0 .984-.956v-.478a.984.984 0 0 0-.984-.984h-4.33V3.626a.984.984 0 0 0-1.013-.984h-.394a.984.984 0 0 0-.956.984V7.93h-4.274a.984.984 0 0 0-.985.984v.45a.984.984 0 0 0 .985.984z"></path>
+                                                        <circle cx="8.883" cy="7.983" r="4.471" transform="rotate(-19.96)"></circle>
+                                                        <path d="M44.407 34.278a1.856 1.856 0 0 0-2.475-.9l-2.587 1.21-4.556-10.659a1.856 1.856 0 0 0-2.306-1.012l-10.882 3.796-5.85-14.847a1.856 1.856 0 1 0-3.458 1.35l6.496 16.506a1.856 1.856 0 0 0 2.334 1.069l5.174-1.8a11.248 11.248 0 1 1-16.423-9.167 1.856 1.856 0 1 0-1.715-3.29 15.073 15.073 0 1 0 21.878 11.585 1.631 1.631 0 0 0-.14-.28l2.193-.76 4.64 10.827a1.856 1.856 0 0 0 2.502.956l4.331-2.025a1.856 1.856 0 0 0 .844-2.559z"></path>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 2, Seat 7 - Wheelchair Accessible." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1">
+                                                <i class="layout__seat__icon icon_accessible" style="background-image: none;">
+                                                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_accessible" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
+                                                        <circle cx="8.9" cy="7.988" r="4.47" transform="rotate(-19.96)"></circle>
+                                                        <path d="M44.404 34.258a1.856 1.856 0 0 0-2.418-.9l-2.586 1.21-4.612-10.657a1.856 1.856 0 0 0-2.305-1.012l-10.881 3.796-5.848-14.846a1.856 1.856 0 0 0-3.459 1.35l6.495 16.504a1.856 1.856 0 0 0 2.334 1.069l5.173-1.8a11.247 11.247 0 0 1-9.784 12.174 11.247 11.247 0 0 1-6.636-21.34 1.856 1.856 0 1 0-1.63-3.29 15.07 15.07 0 0 0 6.832 28.454 15.408 15.408 0 0 0 1.912 0A15.07 15.07 0 0 0 30.037 28.1a1.63 1.63 0 0 0-.14-.28l2.192-.76 4.64 10.825a1.856 1.856 0 0 0 2.502.956l4.33-2.024a1.856 1.856 0 0 0 .843-2.559z"></path>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 2, Seat 8 - Wheelchair Accessible." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1">
+                                                <i class="layout__seat__icon icon_accessible" style="background-image: none;">
+                                                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_accessible" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
+                                                        <circle cx="8.9" cy="7.988" r="4.47" transform="rotate(-19.96)"></circle>
+                                                        <path d="M44.404 34.258a1.856 1.856 0 0 0-2.418-.9l-2.586 1.21-4.612-10.657a1.856 1.856 0 0 0-2.305-1.012l-10.881 3.796-5.848-14.846a1.856 1.856 0 0 0-3.459 1.35l6.495 16.504a1.856 1.856 0 0 0 2.334 1.069l5.173-1.8a11.247 11.247 0 0 1-9.784 12.174 11.247 11.247 0 0 1-6.636-21.34 1.856 1.856 0 1 0-1.63-3.29 15.07 15.07 0 0 0 6.832 28.454 15.408 15.408 0 0 0 1.912 0A15.07 15.07 0 0 0 30.037 28.1a1.63 1.63 0 0 0-.14-.28l2.192-.76 4.64 10.825a1.856 1.856 0 0 0 2.502.956l4.33-2.024a1.856 1.856 0 0 0 .843-2.559z"></path>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 2, Seat 9 - Companion Seat." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1">
+                                                <i class="layout__seat__icon icon_companion" style="background-image: none;">
+                                                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_companion" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
+                                                        <path d="M24.413 10.347h4.33v4.303a.984.984 0 0 0 .956.984h.338a.984.984 0 0 0 .984-.984v-4.303h4.359a.984.984 0 0 0 .984-.956v-.478a.984.984 0 0 0-.984-.984h-4.33V3.626a.984.984 0 0 0-1.013-.984h-.394a.984.984 0 0 0-.956.984V7.93h-4.274a.984.984 0 0 0-.985.984v.45a.984.984 0 0 0 .985.984z"></path>
+                                                        <circle cx="8.883" cy="7.983" r="4.471" transform="rotate(-19.96)"></circle>
+                                                        <path d="M44.407 34.278a1.856 1.856 0 0 0-2.475-.9l-2.587 1.21-4.556-10.659a1.856 1.856 0 0 0-2.306-1.012l-10.882 3.796-5.85-14.847a1.856 1.856 0 1 0-3.458 1.35l6.496 16.506a1.856 1.856 0 0 0 2.334 1.069l5.174-1.8a11.248 11.248 0 1 1-16.423-9.167 1.856 1.856 0 1 0-1.715-3.29 15.073 15.073 0 1 0 21.878 11.585 1.631 1.631 0 0 0-.14-.28l2.193-.76 4.64 10.827a1.856 1.856 0 0 0 2.502.956l4.331-2.025a1.856 1.856 0 0 0 .844-2.559z"></path>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="layout__row" tabindex="0" aria-expanded="false">
+                                    <span class="u-screenreader-only">Row 3 - 50 of 63 seats available.Press Space to expand.</span>
+                                    <ul class="layout__row__columns">
+                                        <li class="layout__column">
+                                            <div aria-label="Empty space" aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--empty-space layout__seat--regular layout__seat--unavailable" role="" tabindex="-1"><span aria-hidden="false" class="layout__seat__name"></span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 3, Seat 2 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">C8</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 3, Seat 3 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">C7</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 3, Seat 4 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">C6</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 3, Seat 5 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">C5</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 3, Seat 6 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">C4</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 3, Seat 7 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">C3</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 3, Seat 8 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">C2</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 3, Seat 9 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">C1</span></div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="layout__row" tabindex="0" aria-expanded="false">
+                                    <span class="u-screenreader-only">Row 4 - 50 of 63 seats available.Press Space to expand.</span>
+                                    <ul class="layout__row__columns">
+                                        <li class="layout__column">
+                                            <div aria-label="Row 4, Seat 1 - Can reserve." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">D9</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 4, Seat 2 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">D8</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 4, Seat 3 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">D7</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 4, Seat 4 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">D6</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 4, Seat 5 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">D5</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 4, Seat 6 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">D4</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 4, Seat 7 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">D3</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 4, Seat 8 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">D2</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 4, Seat 9 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">D1</span></div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="layout__row" tabindex="0" aria-expanded="false">
+                                    <span class="u-screenreader-only">Row 5 - 50 of 63 seats available.Press Space to expand.</span>
+                                    <ul class="layout__row__columns">
+                                        <li class="layout__column">
+                                            <div aria-label="Row 5, Seat 1 - Not available." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular layout__seat--unavailable" role="" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">E9</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 5, Seat 2 - Not available." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--unavailable layout__seat--love-seat-left" role="" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">E8</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 5, Seat 3 - Not available." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--unavailable layout__seat--love-seat-right" role="" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">E7</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 5, Seat 4 - Not available." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--unavailable layout__seat--covid layout__seat--love-seat-left" role="" tabindex="-1">
+                                                <div aria-hidden="false"></div>
+                                            </div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 5, Seat 5 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">E5</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 5, Seat 6 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">E4</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 5, Seat 7 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">E3</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 5, Seat 8 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">E2</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 5, Seat 9 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">E1</span></div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="layout__row" tabindex="0" aria-expanded="false">
+                                    <span class="u-screenreader-only">Row 6 - 50 of 63 seats available.Press Space to expand.</span>
+                                    <ul class="layout__row__columns">
+                                        <li class="layout__column">
+                                            <div aria-label="Row 6, Seat 1 - Can reserve." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">F9</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 6, Seat 2 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">F8</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 6, Seat 3 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">F7</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 6, Seat 4 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">F6</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 6, Seat 5 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">F5</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 6, Seat 6 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">F4</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 6, Seat 7 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">F3</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 6, Seat 8 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">F2</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 6, Seat 9 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">F1</span></div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="layout__row" tabindex="0" aria-expanded="false">
+                                    <span class="u-screenreader-only">Row 7 - 50 of 63 seats available.Press Space to expand.</span>
+                                    <ul class="layout__row__columns">
+                                        <li class="layout__column">
+                                            <div aria-label="Row 7, Seat 1 - Can reserve." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--regular" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">G9</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 7, Seat 2 - Love seat left." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-left" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">G8</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 7, Seat 3 - Love seat right." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--love-seat-right" role="checkbox" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">G7</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 7, Seat 4 - Not available." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--unavailable layout__seat--covid layout__seat--love-seat-left" role="" tabindex="-1">
+                                                <div aria-hidden="false"></div>
+                                            </div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 7, Seat 5 - Not available." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--unavailable layout__seat--love-seat-right" role="" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">G5</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 7, Seat 6 - Not available." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--unavailable layout__seat--love-seat-left" role="" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">G4</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 7, Seat 7 - Not available." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--unavailable layout__seat--love-seat-right" role="" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">G3</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 7, Seat 8 - Not available." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--unavailable layout__seat--love-seat-left" role="" tabindex="-1"><span aria-hidden="false" class="layout__seat__name">G2</span></div>
+                                        </li>
+                                        <li class="layout__column">
+                                            <div aria-label="Row 7, Seat 9 - Not available." aria-checked="false" aria-hidden="true" class="layout__seat layout__seat--unavailable layout__seat--covid layout__seat--love-seat-right" role="" tabindex="-1">
+                                                <div aria-hidden="false"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <ul class="legend" tabindex="0" aria-label="Icon key">
+            <li class="legend__key"><span aria-label="Available Seat Icon" class="legend__seat"></span><span>Available</span></li>
+            <li class="legend__key"><span aria-label="Selected Seat Icon" class="legend__seat legend__seat--selected"></span><span>Selected</span></li>
+            <li class="legend__key"><span aria-label="Unavailable Seat Icon" class="legend__seat legend__seat--unavailable"></span><span>Occupied</span></li>
+            <li class="legend__key"><span aria-label="Unavailable Seat Icon" class="legend__seat legend__seat--unavailable legend__seat--covid"></span><span>Blocked</span></li>
+            <li class="legend__key">
+                <i aria-label="Wheelchair Seat Icon" class="legend__seat__icon icon_accessible" style="background-image: none;">
+                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_accessible" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
+                        <circle cx="8.9" cy="7.988" r="4.47" transform="rotate(-19.96)"></circle>
+                        <path d="M44.404 34.258a1.856 1.856 0 0 0-2.418-.9l-2.586 1.21-4.612-10.657a1.856 1.856 0 0 0-2.305-1.012l-10.881 3.796-5.848-14.846a1.856 1.856 0 0 0-3.459 1.35l6.495 16.504a1.856 1.856 0 0 0 2.334 1.069l5.173-1.8a11.247 11.247 0 0 1-9.784 12.174 11.247 11.247 0 0 1-6.636-21.34 1.856 1.856 0 1 0-1.63-3.29 15.07 15.07 0 0 0 6.832 28.454 15.408 15.408 0 0 0 1.912 0A15.07 15.07 0 0 0 30.037 28.1a1.63 1.63 0 0 0-.14-.28l2.192-.76 4.64 10.825a1.856 1.856 0 0 0 2.502.956l4.33-2.024a1.856 1.856 0 0 0 .843-2.559z"></path>
+                    </svg>
+                </i>
+                <i aria-label="Companion Seat Icon" class="legend__seat__icon icon_companion" style="background-image: none;">
+                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_companion" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
+                        <path d="M24.413 10.347h4.33v4.303a.984.984 0 0 0 .956.984h.338a.984.984 0 0 0 .984-.984v-4.303h4.359a.984.984 0 0 0 .984-.956v-.478a.984.984 0 0 0-.984-.984h-4.33V3.626a.984.984 0 0 0-1.013-.984h-.394a.984.984 0 0 0-.956.984V7.93h-4.274a.984.984 0 0 0-.985.984v.45a.984.984 0 0 0 .985.984z"></path>
+                        <circle cx="8.883" cy="7.983" r="4.471" transform="rotate(-19.96)"></circle>
+                        <path d="M44.407 34.278a1.856 1.856 0 0 0-2.475-.9l-2.587 1.21-4.556-10.659a1.856 1.856 0 0 0-2.306-1.012l-10.882 3.796-5.85-14.847a1.856 1.856 0 1 0-3.458 1.35l6.496 16.506a1.856 1.856 0 0 0 2.334 1.069l5.174-1.8a11.248 11.248 0 1 1-16.423-9.167 1.856 1.856 0 1 0-1.715-3.29 15.073 15.073 0 1 0 21.878 11.585 1.631 1.631 0 0 0-.14-.28l2.193-.76 4.64 10.827a1.856 1.856 0 0 0 2.502.956l4.331-2.025a1.856 1.856 0 0 0 .844-2.559z"></path>
+                    </svg>
+                </i>
+                <span>Wheelchair &amp; Companion</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+</html>
