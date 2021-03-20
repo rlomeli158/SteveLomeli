@@ -1,0 +1,102 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<RoleEditModel>
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<br />
+<h1 class="text-center text-danger">Role Administration Home</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="panel panel-primary">
+
+    <table class="table table-hover text-center">
+        <tr class="text-light text-center">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Users</th>
+            <th></th>
+        </tr>
+        @if (User.IsInRole("Manager"))
+        {
+            @if (Model.Count() == 0)
+            {
+                <tr class="table-secondary text-center text-dark">
+                    <td colspan="4" class="text-center">No roles</td>
+                </tr>
+            }
+            else
+            {
+                foreach (RoleEditModel role in Model)
+                {
+                    <tr class="table-secondary text-center text-dark">
+                        <td>@role.Role.Id</td>
+                        <td>@role.Role.Name</td>
+                        <td>
+                            @if (role.Members == null || role.Members.Count() == 0)
+                            {
+                                @: No Users in role
+                            }
+                            else // if (role.Members.Equals("Customer"))
+                                 //else
+                            {
+                                <p>@string.Join(", ", role.Members.Select(x => x.Email))</p>
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = role.Role.Id }, new { @class = "btn btn-outline-info" })
+                        </td>
+                    </tr>
+                }
+            }
+        }
+
+        @if (User.IsInRole("Employee"))
+        {
+            @if (Model.Count() == 0)
+            {
+                <tr class="table-secondary text-center text-dark">
+                    <td colspan="4" class="text-center">No roles</td>
+                </tr>
+            }
+            else
+            {
+                foreach (RoleEditModel role in Model)
+                {
+                    <tr class="table-secondary text-center text-dark">
+                        <td>@role.Role.Id</td>
+                        <td>@role.Role.Name</td>
+                        <td>
+                            @if (role.Members == null || role.Members.Count() == 0)
+                            {
+                                @: No Users in role
+                            }
+                            else //if (role.Members.Equals("Customer"))
+                            {
+                                <p>@string.Join(", ", role.Members.Select(x => x.Email))</p>
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = role.Role.Id }, new { @class = "btn btn-outline-info" })
+                        </td>
+                    </tr>
+                }
+            }
+        }
+
+
+    </table>
+</div>
+<div class="text-center">
+
+@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole("Manager"))
+    {
+        @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-outline-info" })
+        <a class="btn btn-outline-primary" asp-action="Register" asp-controller="Account">Create New Employee or Customer</a>
+    }
+}
+</div>

@@ -1,0 +1,103 @@
+@model FinalProjectWorkspace.Models.Showing
+
+@{
+    ViewData["Title"] = "Edit a Showing";
+}
+
+    <br />
+<h1 class="text-center text-danger">Edit Showing</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Movie" class="control-label">Movie Title</label>
+                @Html.DropDownList("SelectedMovie", (SelectList)ViewBag.AllMovies, new { @class = "form-control" })
+                <span asp-validation-for="Movie" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ShowingID" />
+            <div class="form-group">
+                <label asp-for="ShowingDate" class="control-label"></label>
+                <input asp-for="ShowingDate" class="form-control" />
+                <span asp-validation-for="ShowingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartTime" class="control-label"></label>
+                <input asp-for="StartTime" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Theatre" class="control-label"></label>
+                @Html.DropDownList("SelectedTheatre", (SelectList)ViewBag.AllTheatres, new { @class = "form-control" })
+                <span asp-validation-for="Theatre" class="text-danger"></span>
+
+            </div>
+            <!--
+    <div class="form-group">
+        <label asp-for="SeatsAvailable" class="control-label"></label>
+        <input asp-for="SeatsAvailable" class="form-control" />
+        <span asp-validation-for="SeatsAvailable" class="text-danger"></span>
+    </div>
+        -->
+            <!--
+    <div class="form-group">
+        <label asp-for="Status" class="control-label"></label>
+        <input asp-for="Status" class="form-control" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+        -->
+            @if (Model.Status == "Published")
+            {
+                <input type="checkbox" id="status" name="status" value="Cancelled">
+                <label for="status"> Cancel showing?</label><br>
+
+                <!--
+        <label asp-for="Status" class="control-label">Choose a Status:</label>
+        <select name="status" id="status" class="form-control">
+            <option value="Published">Published</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+            -->
+            }
+            else
+            {
+                <input asp-for="Status" class="form-control" type="hidden" value="Unpublished" />
+            }
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="SpecialEvent" /> @Html.DisplayNameFor(model => model.SpecialEvent)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-outline-success" />
+                <a class="btn btn-outline-primary" asp-action="Index">Back to Movies Schedules</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>function myFunction() {
+        var checkBox = document.getElementById("published");
+        var checkbox2 = document.getElementById("cancelled");
+
+        if (checkBox.checked == true) {
+            checkbox2.checked = false
+        }
+
+    }
+
+    function myFunctionE() {
+        var checkBox = document.getElementById("cancelled");
+        var checkbox2 = document.getElementById("published");
+
+        if (checkbox2.checked == true) {
+            checkBox.checked = false
+
+        }
+    }</script>

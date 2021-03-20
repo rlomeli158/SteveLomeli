@@ -1,0 +1,50 @@
+﻿@model FinalProjectWorkspace.Models.Order
+
+@{
+    ViewBag.Title = "Order Confirmed!";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div>
+        <div>
+            <center>
+                <br />
+                <br />
+                <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-patch-check-fll" fill="Green" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984a.5.5 0 0 0-.708-.708L7 8.793 5.854 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                </svg>
+                <br />
+                <br />
+                <br />
+                <h1 style="color:darkseagreen;">THANK YOU!</h1>
+                <br />
+                <br />
+                <h5 style="color:darksalmon;">Your tickets are secured! Please keep the following</h5>
+                <h5 style="color:darksalmon;">information for future reference.</h5>
+                <br />
+                <br />
+                <h5 style="color:darksalmon;">
+                    Transaction Number: @Html.DisplayFor(model => model.TransactionNumber)
+                </h5>
+            </center>
+        </div>
+        <br />
+        <br />
+        <div class="text-center">
+            <center>
+                <a class="btn btn-outline-primary" asp-controller="Order" asp-action="Index">Go Back to Orders</a>
+                <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Index">Go Back Home</a>
+
+            </center>
+        </div>
+
+    </div>
+</body>
+</html>

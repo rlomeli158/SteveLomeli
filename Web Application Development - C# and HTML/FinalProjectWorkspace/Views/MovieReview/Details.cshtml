@@ -1,0 +1,116 @@
+@model FinalProjectWorkspace.Models.MovieReview
+
+@{
+    ViewData["Title"] = "Review Details";
+}
+
+<br />
+<h1 class="text-center text-danger">Movie Review Details</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="list-group">
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.ReviewDate)
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.ReviewDate)
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                Reviewer Name
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.User.FirstName) @Html.DisplayFor(model => model.User.LastName)
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.Movie.Title)
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.Movie.Title)
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.Rating)
+            </h5>
+        </div>
+        @if (Model.Rating == 5)
+        {
+            <img src="https://i.ibb.co/tsDybfF/Five-stars.png" width="15%" />
+            @Html.DisplayFor(model => model.Rating)
+
+        }
+        else if (Model.Rating == 4)
+        {
+            <img src="https://i.ibb.co/CQBqNpC/four.png" width="15%" />
+            @Html.DisplayFor(model => model.Rating)
+
+        }
+        else if (Model.Rating == 3)
+        {
+            <img src="https://i.ibb.co/ynsPtYR/three-stars.png" width="15%" />
+            @Html.DisplayFor(model => model.Rating)
+
+        }
+        else if (Model.Rating == 2)
+        {
+            <img src="https://i.ibb.co/Q929rhy/Two-stars.png" width="15%" />
+            @Html.DisplayFor(model => model.Rating)
+
+        }
+        else if (Model.Rating == 1)
+        {
+            <img src="https://i.ibb.co/bscRn81/One-star.png" width="15%" />
+            @Html.DisplayFor(model => model.Rating)
+
+        }
+        <p class="mb-1">
+            <!--Html.DisplayFor(model => model.Rating)-->
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.ReviewDescription)
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.ReviewDescription)
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.ApprovalStatus)
+            </h5>
+        </div>
+        <p class="mb-1">
+            @if (Model.ApprovalStatus == true)
+            {
+                @:Approved
+            }
+            else
+            {
+                @:Not Approved Yet
+            }
+        </p>
+    </a>
+
+</div>
+<br/>
+<div class="text-center">
+    <a asp-action="Edit" asp-route-id="@Model.MovieReviewID" class="btn btn-outline-warning text-center">Edit</a>
+    <a asp-action="Index" class="btn btn-outline-primary text-center">Back to Reviews</a>
+</div>

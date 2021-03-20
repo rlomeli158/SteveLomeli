@@ -1,0 +1,48 @@
+@model IEnumerable<FinalProjectWorkspace.Models.Genre>
+
+@{
+    ViewData["Title"] = "Genres";
+}
+
+<br />
+<h1 class="text-center text-danger">All Genres</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table table-hover text-center">
+    <thead>
+        <tr class="text-light text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.GenreName)
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr class="table-secondary text-center text-dark">
+            <td>
+                @Html.DisplayFor(modelItem => item.GenreName)
+            </td>
+            <td>
+                <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.GenreID">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.GenreID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-outline-primary" asp-controller="Movie" asp-action="Index">Back to Movie Home</a>
+</div>

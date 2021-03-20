@@ -1,0 +1,74 @@
+@model IEnumerable<FinalProjectWorkspace.Models.Ticket>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <br />
+<h1 class="text-center text-danger">Edit or Remove Tickets</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<table class="table table-hover text-center">
+    <thead>
+        <tr class="table-primary text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.Showing.Movie.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Showing.ShowingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeatNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-secondary text-center text-dark">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Showing.Movie.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Showing.ShowingDate) @Html.DisplayFor(modelItem => item.Showing.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeatNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiscountAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiscountName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCost)
+                </td>
+                <td>
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.TicketID">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.TicketID">Remove</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

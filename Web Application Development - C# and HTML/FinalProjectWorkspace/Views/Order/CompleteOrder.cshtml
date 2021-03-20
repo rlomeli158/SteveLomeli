@@ -1,0 +1,186 @@
+@model FinalProjectWorkspace.Models.Order
+
+@{
+    ViewData["Title"] = "Confirm Your Order";
+}
+
+<div class="text-center">
+    <br />
+
+    <h1 class="text-center text-danger">Confirm Your Order</h1>
+    <hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+    <br />
+
+</div>
+<div class="list-group">
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.TransactionNumber)
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.TransactionNumber)
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.OrderDate)
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.OrderStatus)
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.OrderStatus)
+        </p>
+    </a>
+    @if (Model.Seller != null)
+    {
+        <a class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">
+                    Sold By Employee
+                </h5>
+            </div>
+            <p class="mb-1">
+                @Html.DisplayFor(model => model.Seller.FirstName) @Html.DisplayFor(model => model.Seller.LastName)
+            </p>
+        </a>
+    }
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                Customer
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.Purchaser.FirstName) @Html.DisplayFor(model => model.Purchaser.LastName)
+        </p>
+    </a>
+    @if (Model.Recipient != null)
+    {
+        <a class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">
+                    Gift @Html.DisplayNameFor(model => model.Recipient)
+                </h5>
+            </div>
+            <p class="mb-1">
+                @Html.DisplayFor(model => model.Recipient.UserName)
+            </p>
+        </a>
+    }
+</div>
+
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<h5 class="text-center text-danger">Tickets on this Order</h5>
+<table class="table table-hover text-center">
+    <tr class="table-primary text-center">
+        <!--class="text-light text-center"-->
+        <th>Movie Title</th>
+        <th>Date</th>
+        <th>Seat</th>
+        <!--<th>Price</th>
+        <th>Discount</th>-->
+        <th>Ticket Type</th>
+        <th>Total</th>
+    </tr>
+    @foreach (Ticket t in Model.Tickets)
+    {
+        <tr class="table-secondary text-center text-dark">
+            <td>@Html.DisplayFor(ModelItem => t.Showing.Movie.Title)</td>
+            <td>@Html.DisplayFor(ModelItem => t.Showing.ShowingDate) at @Html.DisplayFor(ModelItem => t.Showing.StartTime)</td>
+            <td>@Html.DisplayFor(ModelItem => t.SeatNumber)</td>
+            <!--<td>Html.DisplayFor(ModelItem => t.TicketPrice)</td>
+            <td>Html.DisplayFor(ModelItem => t.DiscountAmount)</td>-->
+            @if (t.DiscountName == DiscountNames.Matinee)
+            {
+                <td>Matinee Discount</td>
+            }
+            else if (t.DiscountName == DiscountNames.Tuesday_Discount)
+            {
+                <td>Discount Tuesday</td>
+            }
+            else if (t.DiscountName == DiscountNames.Senior_Discounts)
+            {
+                <td>Senior Discount</td>
+            }
+            else if (t.DiscountName == DiscountNames.Matinee_and_Senior)
+            {
+                <td>Matinee &amp; Senior Discounts</td>
+            }
+            else if (t.DiscountName == DiscountNames.Tuesday_and_Senior)
+            {
+                <td>Discount Tuesday &amp; Senior Discounts</td>
+            }
+            else if (t.TicketType == TicketTypes.Special_Event)
+            {
+                <td>Special Event</td>
+            }
+            else if (t.TicketType == TicketTypes.Weekday_Regular)
+            {
+                <td>Weekday Discount</td>
+            }
+            else if (t.TicketType == TicketTypes.Weekend_Regular)
+            {
+                <td>Regular Weekend</td>
+            }
+            <td>@Html.DisplayFor(ModelItem => t.TotalCost)</td>
+        </tr>
+    }
+</table>
+
+<h5>Order Summary</h5>
+<table class="table-secondary text-dark" style="width:40%; padding:10px">
+    <tr>
+        <th colspan="2" style="text-align:center">Order Summary</th>
+    </tr>
+    <tr>
+        <td>Order Subtotal:</td>
+        <td>@Html.DisplayFor(model => model.OrderSubtotal)</td>
+    </tr>
+    <tr>
+        <td>Taxes:</td>
+        <td>@Html.DisplayFor(model => model.Taxes)</td>
+    </tr>
+    <tr>
+        <td>Order Total:</td>
+        <td>@Html.DisplayFor(model => model.OrderTotal)</td>
+    </tr>
+    @if (Model.PaidWithPopcornPoints == true)
+    {
+        <tr>
+            <td>Popcorn Points Used:</td>
+            <td>@Html.DisplayFor(model => model.PopcornPoints)</td>
+        </tr>
+        <tr>
+            <td>Amount Saved With Popcorn Points:</td>
+            @{ Decimal popcornSaved = Model.Tickets.Sum(t => t.TicketPrice) - Model.Tickets.Sum(t => t.DiscountAmount);}
+            <td>$@popcornSaved</td>
+        </tr>
+    }
+</table>
+<div style="display:inline-flex; grid-column-gap:15px; margin-top:30px;" class="text-center">
+    <form asp-action="Details" asp-route-id="@Model.OrderID">
+        <input type="submit" value="Return to Order" class="btn btn-outline-warning" />
+    </form>
+    <form asp-action="CompleteOrder" method="post" class="text-center">
+        <input type="hidden" asp-for="OrderID" />
+        <input type="hidden" name="paidPP" value=@ViewBag.PaidWithPopcornPoints>
+        <input type="hidden" name="pcpBalance" value=@ViewBag.PCPBalance>
+        <input type="hidden" name="popcornPoints" value=@ViewBag.PopcornPoints>
+        <input type="hidden" name="recipient" value=@ViewBag.Recipient>
+        <input type="submit" value="Submit Order" asp-route-id="@Model.OrderID" class="btn btn-outline-success" />
+    </form>
+</div>

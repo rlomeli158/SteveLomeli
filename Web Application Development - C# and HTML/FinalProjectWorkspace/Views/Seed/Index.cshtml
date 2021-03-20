@@ -1,0 +1,18 @@
+﻿
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole("Manager"))
+    {
+        <h2 class="text-center">Seed Data Here</h2>
+        <br />
+        <br />
+        <div class="text-center">
+            <a asp-contoller="Seed" asp-action="SeedAllGenres" class="btn btn-outline-danger text-center">Seed Genres</a>
+            <a asp-contoller="Seed" asp-action="SeedAllPrices" class="btn btn-outline-danger text-center">Seed Prices</a>
+            <a asp-contoller="Seed" asp-action="SeedAllMovies" class="btn btn-outline-warning text-center">Seed Movies</a>
+            <a asp-contoller="Seed" asp-action="SeedShowings" class="btn btn-outline-warning text-center">Seed Showings</a>
+        </div>
+    }
+}

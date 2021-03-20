@@ -1,0 +1,19 @@
+﻿@model IEnumerable<String>
+
+<br />
+<img class="w-100 h-auto rounded mx-auto d-block" src="/images/error1.png" alt="Error" title="Error" />
+<img class="w-50 h-50 rounded mx-auto d-block" src="/images/c2.gif" alt="Error" title="Error" />
+
+<div class="text-center">
+    @if (Model != null)
+    {
+        foreach (String message in Model)
+        {
+            <p><span class="text-danger">@message</span></p>
+        }
+    }
+
+
+    <a asp-action="Index" asp-controller="Home" class="btn btn-outline-success">Back to Safety</a>
+
+</div>

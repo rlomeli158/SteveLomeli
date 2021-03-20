@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link rel="icon" href="~/images/favicon.ico" type="image/ico">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body style="background-color:black">
+    <div>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a class="navbar-brand text-center" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" width="120" height="60" alt="Main St. Movies' Logo" title="Main St. Movies' Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navbarColor03">
+                <ul class="navbar-nav mr-auto text-light">
+                    <!--The link to products is provided as an example.  You can add more links for additional pages-->
+                    <li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a asp-controller="Movie" asp-action="Browse" class="nav-link">Browse</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item"><a asp-controller="Order" asp-action="Index" class="nav-link">Orders</a></li>
+                        <li class="nav-item"><a asp-controller="MovieReview" asp-action="Index" class="nav-link">Movie Reviews</a></li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole("Manager"))
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Showing" asp-action="Index" class="nav-link">Showings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="RoleAdmin" asp-action="Index" class="nav-link">Manage Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Home" asp-action="ManagerHomeView" class="nav-link">Manager Home</a>
+                            </li>
+
+                        }
+                        else if (User.IsInRole("Employee"))
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="RoleAdmin" asp-action="Index" class="nav-link">Manage Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Home" asp-action="EmployeeHomeView" class="nav-link">Employee Home</a>
+                            </li>
+                        }
+                        
+                    }
+
+                </ul>
+            </div>
+
+            @await Html.PartialAsync("_LoginPartial")
+
+            <!--
+                <form asp-controller="Movie" asp-action="DisplaySearchResults" class="form-inline my-2 my-lg-0">
+                <input class="form-control" placeholder="Search Movies" />
+                <span class="text-danger"></span>
+                </form>
+
+                -->
+
+
+
+
+        </nav>
+
+    </div>
+
+
+    <div class="container">
+
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/popper/popper.js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="text-center">
+        <a style="background-color: transparent" class="text-light text-center" href="https://www.youtube.com/watch?v=DLzxrzFCyOs">&#169; Team 17 - 2020. All Rights Reserved.</a>
+    </div>
+</body>
+</html>

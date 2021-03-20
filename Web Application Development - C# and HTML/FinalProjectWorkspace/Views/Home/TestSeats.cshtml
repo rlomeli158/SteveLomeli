@@ -1,0 +1,49 @@
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="Row">
+    <div class="Box2">
+        <form name=keyboard name="keyboard">
+            <br />
+            <div style="display:inline-flex;grid-column-gap:15px">
+                <input type="button" id="A1" value="A1">
+                <input type="button" id="A2" value="A2">
+                <input type="button" id="A3" value="A3">
+                <input type="button" id="A4" value="A4">
+                <input type="button" id="A5" value="A5">
+            </div>
+            <br />
+            <div style="display:inline-flex;grid-column-gap:15px" >
+                <input type="button" id="B1" value="B1" >
+                <input type="button" id="B2" value="B2" >
+                <input type="button" id="B3" value="B3" >
+                <input type="button" id="B4" value="B4" >
+                <input type="button" id="B5" value="B5" >
+            </div>
+            <br />
+            <div style="display:inline-flex;grid-column-gap:15px">
+                <input type="button" id="C1" value="C1">
+                <input type="button" id="C2" value="C2">
+                <input type="button" id="C3" value="C3">
+                <input type="button" id="C4" value="C4">
+                <input type="button" id="C5" value="C5">
+            </div>
+            <br />
+            <div style="display:inline-flex;grid-column-gap:15px">
+                <input type="button" id="E1" value="E1">
+                <input type="button" id="E2" value="E2">
+                <input type="button" id="E3" value="E3">
+                <input type="button" id="E4" value="E4">
+                <input type="button" id="E5" value="E5">
+            </div>
+            <br />
+        </form>
+        <br />
+        Your Selected Seat: <input type='text' id='output' />
+    </div>
+</div>
+
+<script>
+    $('input').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+</script>

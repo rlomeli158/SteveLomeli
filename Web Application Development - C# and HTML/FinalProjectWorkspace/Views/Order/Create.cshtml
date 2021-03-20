@@ -1,0 +1,33 @@
+@model FinalProjectWorkspace.Models.Order
+
+@{
+    ViewData["Title"] = "Create an Order";
+}
+    <br />
+<h1 class="text-center text-danger">Create Order</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<hr />
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!--
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="OrderStatus" /> Html.DisplayNameFor(model => model.OrderStatus)
+                    Active
+                </label>
+            </div>
+                -->
+            <div class="form-group text-center">
+                <input type="submit" value="Create" class="btn btn-outline-danger" />
+                <a class="btn btn-outline-primary" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

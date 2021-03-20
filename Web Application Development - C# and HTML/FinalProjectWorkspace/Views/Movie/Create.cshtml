@@ -1,0 +1,77 @@
+@model FinalProjectWorkspace.Models.Movie
+
+@{
+    ViewData["Title"] = "Create a Movie";
+}
+
+<br />
+<h1 class="text-center text-danger">Create New Movie</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+<div class="text-center">
+    <a class="btn btn-outline-primary text-center" asp-controller="Genre" asp-action="Create">Create New Genre</a>
+
+</div>
+
+
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Overview" class="control-label"></label>
+                <input asp-for="Overview" class="form-control" />
+                <span asp-validation-for="Overview" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tagline" class="control-label"></label>
+                <input asp-for="Tagline" class="form-control" />
+                <span asp-validation-for="Tagline" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RunTime" class="control-label"></label>
+                <input asp-for="RunTime" class="form-control" />
+                <span asp-validation-for="RunTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label"></label>
+                @Html.DropDownList("SelectedGenre", (SelectList)ViewBag.AllGenres, new { @class = "form-control" })
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Actors" class="control-label"></label>
+                <input asp-for="Actors" class="form-control" />
+                <span asp-validation-for="Actors" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MPAARating" class="control-label"></label>
+                @Html.DropDownList("SelectedMPAARating", (SelectList)ViewBag.AllMPAARatings, new { @class = "form-control" })
+                <span asp-validation-for="MPAARating" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group text-center">
+                <input type="submit" value="Create" class="btn btn-outline-primary" />
+                <a class="btn btn-outline-warning" asp-action="Index">Go to Movie Home</a>
+                <a class="btn btn-outline-success" asp-controller="Showing" asp-action="Index">Go to All Movie Schedules</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

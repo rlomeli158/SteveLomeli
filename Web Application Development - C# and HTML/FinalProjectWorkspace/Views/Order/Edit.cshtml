@@ -1,0 +1,92 @@
+@model FinalProjectWorkspace.Models.Order
+
+@{
+    ViewData["Title"] = "Edit an Order";
+}
+
+    <br />
+<h1 class="text-center text-danger">Edit Order</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<!--
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OrderID" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+-->
+
+<hr style="border:1px solid white" />
+
+<h5>Tickets on this Order</h5>
+<table class="table table-hover text-center">
+    <tr class="text-light text-center">
+        <th>Movie Title</th>
+        <th>Date</th>
+        <th>Seat Number</th>
+        <th>Ticket Price</th>
+        <th>Discount Amount</th>
+        <th>Discount Name</th>
+        <th>Total Cost</th>
+        @if (Model.OrderStatus == "Active")
+        {
+            <th>Edit</th>
+            <th>Delete</th>
+        }
+    </tr>
+    @foreach (Ticket t in Model.Tickets)
+    {
+        <tr class="table-secondary text-center text-dark">
+            <td>@Html.DisplayFor(ModelItem => t.Showing.Movie.Title)</td>
+            <td>@Html.DisplayFor(ModelItem => t.Showing.ShowingDate) @Html.DisplayFor(ModelItem => t.Showing.StartTime)</td>
+            <td>@Html.DisplayFor(ModelItem => t.SeatNumber)</td>
+            <td>@Html.DisplayFor(ModelItem => t.TicketPrice)</td>
+            <td>@Html.DisplayFor(ModelItem => t.DiscountAmount)</td>
+            @if (t.DiscountName == DiscountNames.Matinee)
+            {
+                <td>Matinee</td>
+            }
+            else if (t.DiscountName == DiscountNames.Tuesday_Discount)
+            {
+                <td>Discount Tuesday</td>
+            }
+            else if (t.DiscountName == DiscountNames.Senior_Discounts)
+            {
+                <td>Senior</td>
+            }
+            else if (t.DiscountName == DiscountNames.Matinee_and_Senior)
+            {
+                <td>Matinee &amp; Senior</td>
+            }
+            else if (t.DiscountName == DiscountNames.Tuesday_and_Senior)
+            {
+                <td>Discount Tuesday &amp; Senior</td>
+            }
+            else
+            {
+                <td>None</td>
+            }
+            <td>@Html.DisplayFor(ModelItem => t.TotalCost)</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Ticket" asp-route-id="@t.TicketID" class="btn btn-outline-info">Edit</a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-controller="Ticket" asp-route-id="@t.TicketID" class="btn btn-outline-info">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="text-center">
+    <a asp-controller="Ticket" asp-action="Create" asp-route-orderid="@Model.OrderID" class="btn btn-outline-info">Add More Tickets</a>
+    <a asp-controller="Ticket" asp-action="Index" asp-route-orderid="@Model.OrderID" class="btn btn-outline-warning">Edit Existing Tickets</a>
+    <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@Model.OrderID">Back to Order</a>
+</div>
+

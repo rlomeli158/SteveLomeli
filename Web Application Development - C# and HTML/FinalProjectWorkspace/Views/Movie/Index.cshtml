@@ -1,0 +1,77 @@
+@model IEnumerable<FinalProjectWorkspace.Models.Movie>
+
+@{
+    ViewData["Title"] = "All Movies";
+}
+
+<br />
+<h1 class="text-center text-danger">Movie Home</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <a class="btn btn-outline-primary" asp-action="Create">Create New Movie</a>
+    <a class="btn btn-outline-success" asp-controller="Genre" asp-action="Create">Create New Genre</a>
+</div>
+<table class="table table-hover text-center">
+    <thead>
+        <tr class="text-light text-center">
+
+            <th>
+                @Html.DisplayNameFor(model => model.MovieNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tagline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RunTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MPAARating)
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr class="table-secondary text-center text-dark">
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tagline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RunTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MPAARating)
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" asp-action="Edit" asp-route-id="@item.MovieID">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.MovieID">Details</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

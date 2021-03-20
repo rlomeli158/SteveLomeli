@@ -1,0 +1,200 @@
+@model FinalProjectWorkspace.Models.Ticket
+
+@{
+    ViewData["Title"] = "Choose Your Seat!";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+@{List<string> seatsAvailable = ViewBag.AllSeatsAvailable;}
+
+<br />
+<h1 class="text-center text-danger">Create Ticket</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Create" name="keyboard">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            @Html.HiddenFor(model => model.Order.OrderID)
+            @Html.HiddenFor(model => model.Order.Purchaser)
+            <div class="form-group">
+                <label class="control-label">Showing:</label>
+                @Html.DropDownList("SelectedShowing", (SelectList)ViewBag.AllShowings, new { @class = "form-control" })
+            </div>
+            <div class="text-center">
+                <h3 class="text-danger text-center">S C R E E N</h3>
+            </div>
+            <div>
+                
+                <div style="display:inline-flex;grid-column-gap:15px">
+                    <input type="button" id="A1" value="A1"
+                           class="btn btn-@(seatsAvailable.Contains("A1") ? "success" : "danger")">
+                    <input type="button" id="A2" value="A2"
+                           class="btn btn-@(seatsAvailable.Contains("A2") ? "success" : "danger")">
+                    <input type="button" id="A3" value="A3"
+                           class="btn btn-@(seatsAvailable.Contains("A3") ? "success" : "danger")">
+                    <input type="button" id="A4" value="A4"
+                           class="btn btn-@(seatsAvailable.Contains("A4") ? "success" : "danger")">
+                    <input type="button" id="A5" value="A5"
+                           class="btn btn-@(seatsAvailable.Contains("A5") ? "success" : "danger")">
+                </div>
+                <br />
+                <div style="display:inline-flex;grid-column-gap:15px">
+                    <input type="button" id="B1" value="B1"
+                           class="btn btn-@(seatsAvailable.Contains("B1") ? "success" : "danger")">
+                    <input type="button" id="B2" value="B2"
+                           class="btn btn-@(seatsAvailable.Contains("B2") ? "success" : "danger")">
+                    <input type="button" id="B3" value="B3"
+                           class="btn btn-@(seatsAvailable.Contains("B3") ? "success" : "danger")">
+                    <input type="button" id="B4" value="B4"
+                           class="btn btn-@(seatsAvailable.Contains("B4") ? "success" : "danger")">
+                    <input type="button" id="B5" value="B5"
+                           class="btn btn-@(seatsAvailable.Contains("B5") ? "success" : "danger")">
+                </div>
+                <br />
+                <div style="display:inline-flex;grid-column-gap:15px">
+                    <input type="button" id="C1" value="C1"
+                           class="btn btn-@(seatsAvailable.Contains("C1") ? "success" : "danger")">
+                    <input type="button" id="C2" value="C2"
+                           class="btn btn-@(seatsAvailable.Contains("C2") ? "success" : "danger")">
+                    <input type="button" id="C3" value="C3"
+                           class="btn btn-@(seatsAvailable.Contains("C3") ? "success" : "danger")">
+                    <input type="button" id="C4" value="C4"
+                           class="btn btn-@(seatsAvailable.Contains("C4") ? "success" : "danger")">
+                    <input type="button" id="C5" value="C5"
+                           class="btn btn-@(seatsAvailable.Contains("C5") ? "success" : "danger")">
+                </div>
+                <br />
+                <div style="display:inline-flex;grid-column-gap:15px">
+                    <input type="button" id="D1" value="D1"
+                           class="btn btn-@(seatsAvailable.Contains("D1") ? "success" : "danger")">
+                    <input type="button" id="D2" value="D2"
+                           class="btn btn-@(seatsAvailable.Contains("D2") ? "success" : "danger")">
+                    <input type="button" id="D3" value="D3"
+                           class="btn btn-@(seatsAvailable.Contains("D3") ? "success" : "danger")">
+                    <input type="button" id="D4" value="D4"
+                           class="btn btn-@(seatsAvailable.Contains("D4") ? "success" : "danger")">
+                    <input type="button" id="D5" value="D5"
+                           class="btn btn-@(seatsAvailable.Contains("D5") ? "success" : "danger")">
+                </div>
+                <br />
+                <p></p>
+                <label asp-for="SeatNumber" class="control-label"></label>
+                <input asp-for="SeatNumber" type='text' id='output' />
+                <span asp-validation-for="SeatNumber" class="text-danger"></span>
+            </div>
+            <!--
+    <div class="form-group">
+        <label asp-for="SeatNumber" class="control-label"></label>
+        <input asp-for="SeatNumber" class="form-control" />
+        <span asp-validation-for="SeatNumber" class="text-danger"></span>
+    </div>
+        -->
+            <br/>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Add to Order" class="btn btn-outline-primary" />
+                <a class="btn btn-outline-danger" asp-controller="Home" asp-action="Index" >Back to Home</a>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+
+
+<script>$('#A1').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+
+    })
+    $('#A2').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#A3').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#A4').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#A5').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#B1').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#B2').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#B3').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#B4').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#B5').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#C1').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#C2').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#C3').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#C4').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#C5').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+
+    })
+    $('#D1').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#D2').click(function () {
+        $('#output').val($(this).val());
+
+    })
+    $('#D3').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#D4').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    $('#D5').click(function () {
+        $('#output').val($(this).val());
+        console.log($(this).val());
+    })
+    /*
+    $('').click(function () {
+        var $this = $(this);
+        if ($('').hasClass('btn btn-success')) {
+            $('').removeClass('btn btn-success')
+            $('').addClass('btn btn-info');
+
+        })
+        */</script>
+
+

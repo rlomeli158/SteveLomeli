@@ -1,0 +1,119 @@
+@model IEnumerable<FinalProjectWorkspace.Models.Movie>
+
+@{ ViewData["Title"] = "Movie Search Results"; }
+
+
+    <br />
+<h1 class="text-center text-danger">Search Results</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <a class="btn btn-outline-primary" asp-action="Browse">Back to Search</a>
+</div>
+<br />
+<div>
+    <p>
+        Displaying @ViewBag.SelectedMovies out of @ViewBag.AllMovies All Movies
+    </p>
+</div>
+
+<table class="table table-hover text-center">
+    <thead>
+        <tr class="text-light text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MPAARating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RunTime)
+            </th>
+            <th>
+                Review Rating
+            </th>
+            <th>
+                See Reviews
+            </th>
+            <th>
+                Selected Show Date
+            </th>
+            <th>
+                Theatre
+            </th>
+            <th>
+                Seats Available
+            </th>
+            <th>
+                Movie Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @foreach(var showing in item.Showings)
+            {
+                if(ViewBag.startDate <= showing.ShowingDate && ViewBag.endDate >= showing.ShowingDate && showing.Status == "Published" && DateTime.Now < showing.StartTime)
+                {                
+                <tr class="table-secondary text-center text-dark">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MPAARating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RunTime)
+                    </td>
+                    <td>
+                        @{Double? avgReviews = item.MovieReviews.Where(r => r.ApprovalStatus == true).Average(m => m.Rating);}
+                        @if (avgReviews != null)
+                        {
+                            @avgReviews
+                        }
+                        else
+                        {
+                            @:0
+                        }
+
+                    </td>
+                    <td>
+                        <a asp-action="Index" asp-controller="MovieReview" asp-route-movieid="@item.MovieID" class="btn btn-outline-info">Reviews</a>
+                    </td>
+                    <td>
+                        @if (ViewBag.startDate <= showing.ShowingDate && ViewBag.endDate >= showing.ShowingDate && showing.Status == "Published" && DateTime.Now < showing.StartTime)
+                        {
+                            @Html.DisplayFor(modelShowing => showing.ShowingDate) @:at @Html.DisplayFor(modelShowing => showing.StartTime)
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelShowing => showing.Theatre)
+                    </td>
+                    <td>
+                        @{Int32 seatCount = 0;}
+                        @if (showing.SeatsAvailable != null)
+                        {
+                            seatCount = showing.SeatsAvailable.Count();
+                        }
+                        @if (seatCount != 0)
+                        {
+                            @seatCount
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.MovieID" class="btn btn-outline-info">View</a>
+                    </td>
+                </tr>
+
+            } 
+               }
+            }
+    </tbody>
+    </table>
+
+<div class="text-center">
+    <a class="btn btn-outline-primary" asp-action="Browse">Back to Search</a>
+</div>
+

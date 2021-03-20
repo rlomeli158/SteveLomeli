@@ -1,0 +1,79 @@
+﻿@model FinalProjectWorkspace.Models.ReportSearchViewModel
+
+@{ ViewData["Title"] = "Report Search"; }
+
+    <br />
+<h1 class="text-center text-danger">Report Search</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="DisplayReportResults">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TotalRevenue" />
+                    @Html.DisplayNameFor(model => model.TotalRevenue)
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TotalSeatsSold" />
+                    @Html.DisplayNameFor(model => model.TotalSeatsSold)
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ByCustomers" />
+                    @Html.DisplayNameFor(model => model.ByCustomers)
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PPTickets" />
+                    @Html.DisplayNameFor(model => model.PPTickets)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedStartingDate" class="control-label"></label>
+                <input asp-for="SelectedStartingDate" class="form-control" />
+                <span asp-validation-for="SelectedStartingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedEndingDate" class="control-label"></label>
+                <input asp-for="SelectedEndingDate" class="form-control" />
+                <span asp-validation-for="SelectedEndingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedMovie" class="control-label"></label>
+                @Html.DropDownList("SelectedMovie", (SelectList)ViewBag.AllMovies, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedMPAARating" class="control-label"></label>
+                @Html.DropDownListFor(model => model.SelectedMPAARating, (SelectList)ViewBag.AllMPAARatings, new { @class = "form-control" })
+                <span asp-validation-for="SelectedMPAARating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedTime" class="control-label"></label>
+                <input asp-for="SelectedTime" class="form-control" />
+                <span asp-validation-for="SelectedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedSearchType" class="control-label"></label>&nbsp;
+                <label class="radio">
+                    @Html.RadioButtonFor(model => model.SelectedSearchType, AllSearchTypes.Before) Before &nbsp; &nbsp;
+                </label>
+                <label class="radio">
+                    @Html.RadioButtonFor(model => model.SelectedSearchType, AllSearchTypes.After) After
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-outline-success" />
+                <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Index">Return to Home Page</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

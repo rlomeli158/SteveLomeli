@@ -1,0 +1,122 @@
+﻿@model FinalProjectWorkspace.Models.EditViewModel
+@{
+    ViewBag.Title = "Edit Account";
+}
+
+
+<br />
+<h1 class="text-center text-danger">Change your Account Settings</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div>
+
+    <div class="text-center">
+        <div class="text-center">
+            <form asp-action="EditAccount" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="UserID" />
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Manager"))
+                    {
+                        <div class="form-group">
+                            <label class="control-label">Email: </label>
+                            <input readonly asp-for="Email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MiddleInitial" class="control-label"></label>
+                            <input asp-for="MiddleInitial" class="form-control" />
+                            <span asp-validation-for="MiddleInitial" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    }
+
+                    else
+                    {
+                        <div class="form-group">
+                            <label class="control-label">Email: </label>
+                            <input readonly asp-for="Email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">First Name:</label>
+                            <input readonly asp-for="FirstName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Middle Initial: </label>
+                            <input readonly asp-for="MiddleInitial" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Last Name: </label>
+                            <input readonly asp-for="LastName" class="form-control" />
+                        </div>
+                    }
+
+                }
+
+
+
+
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="State" class="control-label"></label>
+                    <input asp-for="State" class="form-control" />
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Zip" class="control-label"></label>
+                    <input asp-for="Zip" class="form-control" />
+                    <span asp-validation-for="Zip" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Birthday" class="control-label"></label>
+                    <input asp-for="Birthday" class="form-control" />
+                    <span asp-validation-for="Birthday" class="text-danger"></span>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Manager"))
+                    {
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input asp-for="AccountStatus" type="checkbox" class="custom-control-input" id="customSwitch1" checked="checked">
+                                <label asp-validation-for="AccountStatus" class="custom-control-label" for="customSwitch1">Active Status</label>
+                            </div>
+                        </div>
+                    }
+
+                }
+                <div class="form-group">
+                    <br />
+                    <label class="control-label">Please click save to save any changes and proceed to account details. You can change password or view additional details there.</label>
+                    <br />
+                    <input type="submit" value="Save" class="btn btn-outline-danger" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

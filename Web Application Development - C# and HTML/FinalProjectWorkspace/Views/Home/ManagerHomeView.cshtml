@@ -1,0 +1,87 @@
+﻿@model AppUser
+
+@{
+    ViewBag.Title = "Welcome back!";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div>
+        <div>
+            <center>
+                <br />
+                <br />
+                <h1 class="text-center text-danger">Welcome, @ViewBag.PersonName!</h1>
+            </center>
+        </div>
+        <hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+        <br />
+        <br />
+        <center>
+            <div class="row row-cols-1 row-cols-md-3">
+
+                <div class="col mb-4">
+                    <p class="sansserif" style="color:darksalmon;">Edit Customer Profile</p>
+                    <a class="btn btn-primary" asp-controller="RoleAdmin" asp-action="Index">Edit Customer Profiles</a>
+                </div>
+                <div class="col mb-4">
+                    <p class="sansserif" style="color:darksalmon;">Sell Tickets</p>
+                    <a class="btn btn-primary" asp-action="SellTicket" asp-controller="Order">Sell Tickets</a>
+                </div>
+                <div class="col mb-4">
+                    <p class="sansserif" style="color:darksalmon;">Movie Search</p>
+                    <a class="btn btn-primary" asp-controller="Movie" asp-action="Browse">Movie Search</a>
+                </div>
+            </div>
+        </center>
+        <br />
+        <br />
+        <div>
+            <center>
+                <div class="row row-cols-1 row-cols-md-3">
+
+                    <div class="col mb-4">
+                        <p class="sansserif" style="color:darksalmon;">Edit Reviews</p>
+                        <a class="btn btn-primary" asp-controller="MovieReview" asp-action="Index">Edit Reviews</a>
+                    </div>
+                    <div class="col mb-4">
+                        <p class="sansserif" style="color:darksalmon;">Create an Employee or Customer</p>
+                        <a class="btn btn-primary" asp-action="Register" asp-controller="Account">Create a Profile</a>
+                    </div>
+                    <div class="col mb-4">
+                        <p class="sansserif" style="color:darksalmon;">Movie Schedule</p>
+                        <a class="btn btn-primary" asp-controller="Showing" asp-action="Index">Movie Schedule</a>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <br />
+        <br />
+        <div>
+            <center>
+                <div class="row row-cols-1 row-cols-md-3">
+                    <div class="col mb-4">
+                        <p class="sansserif" style="color:darksalmon;">Reports</p>
+                        <a class="btn btn-primary" asp-controller="Ticket" asp-action="ReportSearch">Reports</a>
+                    </div>
+                    <div class="col mb-4">
+                        <p class="sansserif" style="color:darksalmon;">Prices</p>
+                        <a class="btn btn-primary" asp-controller="Price" asp-action="Index">Edit Prices</a>
+                    </div>
+                    <div class="col mb-4">
+                        <p class="sansserif" style="color:darksalmon;">Movie Index</p>
+                        <a class="btn btn-primary" asp-controller="Movie" asp-action="Index">Edit Movies</a>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</body>
+</html>
+

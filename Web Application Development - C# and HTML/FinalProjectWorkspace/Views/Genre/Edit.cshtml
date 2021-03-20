@@ -1,0 +1,30 @@
+@model FinalProjectWorkspace.Models.Genre
+
+@{
+    ViewData["Title"] = "Edit Genre";
+}
+
+    <br />
+<h1 class="text-center text-danger">Edit Genre</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="GenreID" />
+            <div class="form-group">
+                <label asp-for="GenreName" class="control-label"></label>
+                <input asp-for="GenreName" class="form-control" />
+                <span asp-validation-for="GenreName" class="text-danger"></span>
+            </div>
+            <div class="text-center form-group">
+                <input type="submit" value="Save" class="btn btn-outline-success" />
+                <a class="btn btn-outline-primary" asp-action="Index">Back to Genre Home</a>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,199 @@
+﻿@model FinalProjectWorkspace.Models.ReportViewModel
+
+@{ ViewData["Title"] = "Revenue Report"; }
+
+<br />
+<h1 class="text-center text-danger">Report</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <a class="btn btn-outline-primary" asp-action="ReportSearch">Back to Search</a>
+</div>
+<br />
+@if (Model.TotalRevenue != 0 || Model.TotalSeatsSold != 0)
+{
+    <h3>Revenue Report</h3>
+    <br />
+    <table class="table table-hover text-center">
+        <thead>
+            <tr class="table-primary text-center">
+                @if (Model.TotalRevenue != 0)
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.TotalRevenue)
+                    </th>
+                }
+                @if (Model.TotalSeatsSold != 0)
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.TotalSeatsSold)
+                    </th>
+                }
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-secondary text-center text-dark">
+                @if (Model.TotalRevenue != 0)
+                {
+                    <td>
+                        @Html.DisplayFor(model => model.TotalRevenue)
+                    </td>
+                }
+                @if (Model.TotalSeatsSold != 0)
+                {
+                    <td>
+                        @Html.DisplayFor(model => model.TotalSeatsSold)
+                    </td>
+                }
+
+            </tr>
+        </tbody>
+    </table>
+}
+
+
+
+
+@if (Model.AppUsers != null)
+{
+    <h3>Customer Report</h3>
+    <div>
+        <label class="form-check-label">
+            More Details
+            <input type="checkbox" id="myCheck" onclick="myFunction()" />
+        </label>
+    </div>
+    <br />
+    <table class="table table-hover text-center">
+        <thead>
+            <tr class="table-primary text-center">
+                <th>
+                    @Html.DisplayNameFor(model => Model.AppUsers)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalRevenue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalSeatsSold)
+                </th>
+                <th>
+                    Popcorn Points Earned
+                </th>
+                <th>
+                    Transactions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AppUsers)
+            {
+                <tr class="table-secondary text-center text-dark">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @{Decimal totalRevenue = item.OrdersPurchased.DefaultIfEmpty().Sum(item => item.OrderSubtotal);}
+                        $@totalRevenue
+                    </td>
+                    <td>
+                        @{Int32 totalSeats = item.OrdersPurchased.DefaultIfEmpty().Sum(item => item.Tickets.Count());}
+                        @totalSeats
+                    </td>
+                    <td>
+                        @{Int32 totalPCP = item.OrdersPurchased.DefaultIfEmpty().Sum(item => item.Tickets.Sum(item => (int)item.TransactionPopcornPoints));}
+                        @totalPCP
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-warning" asp-action="Transactions" asp-route-id="@item.Id">Transactions</a>
+                    </td>
+                </tr>
+                @foreach (var ticket in item.Tickets)
+                {
+                    <tr class="table-secondary text-center text-dark">
+                        <td>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelTicket => ticket.TotalCost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelTicket => ticket.SeatNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelTicket => ticket.TransactionPopcornPoints)
+                        </td>
+                        <td>
+                            <div class="text" style="display:none">
+                                @Html.DisplayFor(modelTicket => ticket.Showing.Movie.Title) <br />
+                                Date: @Html.DisplayFor(modelTicket => ticket.Showing.ShowingDate)
+                                @Html.DisplayFor(modelTicket => ticket.Showing.StartTime)<br />
+                            </div>
+                            Status: @Html.DisplayFor(modelTicket => ticket.TicketStatus)
+                        </td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table>
+}
+
+@if (Model.PopcornPointTickets != null)
+{
+    <h3>Popcorn Points Report</h3>
+    <br />
+
+    <table class="table table-hover text-center">
+        <thead>
+            <tr class="table-primary text-center">
+                <th>
+                    Customer
+                </th>
+                <th>
+                    Movie Title
+                </th>
+                <th>
+                    Movie Date
+                </th>
+                <th>
+                    Order Date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PopcornPointTickets)
+            {
+                <tr class="table-secondary text-center text-dark">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order.Purchaser.FirstName) @Html.DisplayFor(modelItem => item.Order.Purchaser.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Showing.Movie.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Showing.ShowingDate) @Html.DisplayFor(modelItem => item.Showing.StartTime)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order.OrderDate)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+<script>function myFunction() {
+    var elements = document.getElementsByClassName("text");
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].style.display === "none") {
+            elements[i].style.display = "block";
+        }else if (elements[i].style.display === "block") {
+            elements[i].style.display = "none";
+        }
+
+    }
+}
+    </script>

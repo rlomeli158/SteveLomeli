@@ -1,0 +1,67 @@
+@model FinalProjectWorkspace.Models.MovieReview
+
+@{
+    ViewData["Title"] = "Edit a Review";
+}
+
+
+    <br />
+<h1 class="text-center text-danger">Edit Movie Review</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MovieReviewID" />
+            <div class="form-group">
+                <label asp-for="Movie.Title" class="control-label"></label>
+                <input readonly asp-for="Movie.Title" class="form-control" />
+                <span asp-validation-for="Movie.Title" class="text-danger"></span>
+            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @if (User.IsInRole("Employee") || User.IsInRole("Manager"))
+                {
+                    <div class="form-group">
+                        <label asp-for="Rating" class="control-label"></label>
+                        <input readonly asp-for="Rating" class="form-control" />
+                        <span asp-validation-for="Rating" class="text-danger"></span>
+                    </div>
+                }
+                @if (User.IsInRole("Customer"))
+                {
+                    <div class="form-group">
+                        <label asp-for="Rating" class="control-label"></label>
+                        <input asp-for="Rating" class="form-control" />
+                        <span asp-validation-for="Rating" class="text-danger"></span>
+                    </div>
+                }
+            }
+
+            <div class="form-group">
+                <label asp-for="ReviewDescription" class="control-label"></label>
+                <input asp-for="ReviewDescription" class="form-control" />
+                <span asp-validation-for="ReviewDescription" class="text-danger"></span>
+            </div>
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Manager") || User.IsInRole("Employee"))
+            {
+                @if (Model.ApprovalStatus == false)
+                {
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="ApprovalStatus" /> @Html.DisplayNameFor(model => model.ApprovalStatus)
+                        </label>
+                    </div>
+                }
+                
+            }
+            <div class="form-group text-center">
+                <input type="submit" value="Save" class="btn btn-outline-danger" />
+                <a asp-action="Index" class="btn btn-outline-primary text-center">Back to Reviews</a>
+            </div>
+        </form>
+    </div>
+</div>
+

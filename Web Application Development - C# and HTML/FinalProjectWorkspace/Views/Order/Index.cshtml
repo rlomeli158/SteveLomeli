@@ -1,0 +1,135 @@
+@model IEnumerable<FinalProjectWorkspace.Models.Order>
+
+@{
+    ViewData["Title"] = "Order History";
+}
+
+<div class="text-center">
+    <br />
+    <h1 class="text-center text-danger">Order History</h1>
+</div>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<!-- People shouldn't be able to start an order by clicking this, instead, they should add a ticket to their cart
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create" >Create New</a>
+</p>
+-->
+
+<table class="table table-hover text-center">
+    <thead>
+        <tr class="text-light text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchaser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seller)
+            </th>
+            <th>
+                View
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-secondary text-center text-dark">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchaser.FirstName) @Html.DisplayFor(modelItem => item.Purchaser.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seller.FirstName) @Html.DisplayFor(modelItem => item.Seller.LastName)
+                </td>
+                <td>
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.OrderID">View</a>
+                </td>
+                <td>
+                 
+
+                    @if ((item.OrderStatus == "Paid" || item.OrderStatus == "Partially Cancelled") && !item.Tickets.Any(t => t.Showing.StartTime < DateTime.Now.AddHours(1)))
+                    {
+
+                            <a class="btn btn-outline-danger" asp-action="Cancelled" asp-route-id="@item.OrderID">Cancel</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <br />
+    <h2 class="text-center text-danger">Popcorn Points History</h2>
+</div>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<table class="table table-hover text-center">
+    <thead>
+        <tr class="text-light text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchaser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seller)
+            </th>
+            <th>
+                Popcorn Points
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-secondary text-center text-dark">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchaser.FirstName) @Html.DisplayFor(modelItem => item.Purchaser.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seller.FirstName) @Html.DisplayFor(modelItem => item.Seller.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PopcornPoints)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

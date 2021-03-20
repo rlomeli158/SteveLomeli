@@ -1,0 +1,139 @@
+﻿@model IEnumerable<FinalProjectWorkspace.Models.Ticket>
+
+@{
+    ViewData["Title"] = "Transactions";
+}
+
+    <br />
+<h1 class="text-center text-danger">Transactions</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<table class="table table-hover text-center">
+    <thead>
+        <tr class="table-primary text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.Order.TransactionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.OrderDate)
+            </th>
+            <th>
+                Movie Title
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Showing.ShowingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketStatus)
+            </th>
+            <th>
+                Seat Sold
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.PaidWithPopcornPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionPopcornPoints)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr class="table-secondary text-center text-dark">
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.TransactionNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.OrderDate)
+            </td>
+            <td>
+                <!--
+        {List<string> moviesWatched = new List<string>(); }
+        foreach (var showing in Model)
+        {
+            if (!moviesWatched.Contains(showing.Showing.Movie.Title))
+            {
+                moviesWatched.Add(showing.Showing.Movie.Title);
+            }
+        }
+        foreach (string movie in moviesWatched)
+        {
+            movie
+            <br />
+        }
+            -->
+                @Html.DisplayFor(modelItem => item.Showing.Movie.Title)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Showing.ShowingDate) @Html.DisplayFor(modelItem => item.Showing.StartTime)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCost)
+            </td>
+            @if (item.DiscountName == DiscountNames.Matinee)
+                {
+                <td>Matinee Discount</td>
+            }
+            else if (item.DiscountName == DiscountNames.Tuesday_Discount)
+            {
+                <td>Discount Tuesday</td>
+            }
+            else if (item.DiscountName == DiscountNames.Senior_Discounts)
+            {
+                <td>Senior Discount</td>
+            }
+            else if (item.DiscountName == DiscountNames.Matinee_and_Senior)
+            {
+                <td>Matinee &amp; Senior Discounts</td>
+            }
+            else if (item.DiscountName == DiscountNames.Tuesday_and_Senior)
+            {
+                <td>Discount Tuesday &amp; Senior Discounts</td>
+            }
+            else if (item.TicketType == TicketTypes.Special_Event)
+            {
+                <td>Special Event</td>
+            }
+            else if (item.TicketType == TicketTypes.Weekday_Regular)
+            {
+                <td>Weekday Discount</td>
+            }
+            else if (item.TicketType == TicketTypes.Weekend_Regular)
+            {
+                <td>Regular Weekend</td>
+            }
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeatNumber)
+                </td>
+                <td>
+                    @if (item.Order.PaidWithPopcornPoints == true)
+                    {
+                        @:Yes
+                    }
+                    else
+                    {
+                        @:No
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionPopcornPoints)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-outline-primary" asp-action="ReportSearch">Back to Search</a>
+</div>

@@ -1,0 +1,51 @@
+@model FinalProjectWorkspace.Models.PublishViewModel
+
+@{
+    ViewData["Title"] = "Publish a Schedule";
+}
+
+    <br />
+<h1 class="text-center text-danger">Publish a Schedule</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Publish">
+            <div style="display:inline-flex; grid-column-gap:30px">
+                <!--
+        <div class="form-group" style="width:300px">
+            <label asp-for="SelectedShowingDate" class="control-label"></label>
+            <input asp-for="SelectedShowingDate" class="form-control" />
+            <span asp-validation-for="SelectedShowingDate" class="text-danger"></span>
+        </div>
+            -->
+                <div class="form-group" style="width:300px">
+                    <label asp-for="SelectedTheatre" class="control-label"></label><br />&nbsp;
+                    <label class="radio">
+                        @Html.RadioButtonFor(model => model.SelectedTheatre, Theatre.Theatre1) Theater 1 &nbsp; &nbsp;
+                    </label>
+                    <label class="radio">
+                        @Html.RadioButtonFor(model => model.SelectedTheatre, Theatre.Theatre2) Theater 2
+                    </label>
+                    <span asp-validation-for="SelectedTheatre" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="width:300px">
+                    <label asp-for="SelectedStartingDate" class="control-label"></label>
+                    <input asp-for="SelectedStartingDate" class="form-control" />
+                    <span asp-validation-for="SelectedStartingDate" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="width:300px">
+                    <label asp-for="SelectedEndingDate" class="control-label"></label>
+                    <input asp-for="SelectedEndingDate" class="form-control" />
+                    <span asp-validation-for="SelectedEndingDate" class="text-danger"></span>
+                </div>
+                 <button type="submit" class="btn btn-outline-danger">Submit</button>
+            </div>
+           
+            <a class="btn btn-outline-primary" asp-action="Index">Back to Movies Schedules</a>
+        </form>
+    </div>
+</div>
+
+

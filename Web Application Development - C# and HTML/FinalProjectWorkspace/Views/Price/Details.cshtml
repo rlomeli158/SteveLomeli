@@ -1,0 +1,33 @@
+@model FinalProjectWorkspace.Models.Price
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+    <br />
+<h1 class="text-center text-danger">Details</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div>
+    <h4>Price</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PriceName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceAmount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PriceAmount)
+        </dd>
+    </dl>
+</div>
+<div class="text-center">
+    <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model.PriceID">Edit</a>
+    <a class="btn btn-outline-primary" asp-action="Index">Back to Price List</a>
+</div>

@@ -1,0 +1,128 @@
+﻿@model IEnumerable<FinalProjectWorkspace.Models.Showing>
+
+@{
+    ViewBag.Title = "Welcome to Main St. Movies!";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="text-center">
+        <br />
+        <h1>Welcome to Main St. Movies!</h1>
+    </div>
+
+    <div class="text-center">
+        <hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+        <br />
+
+
+
+        <h2 class="text-danger">Main St. Original: The Last Search</h2>
+
+
+        <br />
+        <video controls autoplay loop class="video">
+            <source src="/images/MSM.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+    <hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+    <br />
+
+
+    <h2 class="text-danger text-center">Current Showings</h2>
+
+    <div>
+        <form asp-action="Index" asp-controller="Home" method="get">
+            <p class="form-group text-center">
+                Search Today's Showings: <input name="SearchString" class="form-control" placeholder="Search Movie Title" /><br />
+                <button type="submit" class="btn btn-outline-primary">Search</button>
+                <a asp-controller="Movie" asp-action="Browse" type="button" class="btn btn-outline-danger">Search All Movies</a>
+                <!--<a asp-action="Index" type="button" class="btn btn-outline-primary">See All Showings</a>-->
+
+            </p>
+        </form>
+    </div>
+    <div>
+        <p>
+            Displaying @ViewBag.SelectedShowings out of @ViewBag.AllShowings Remaining Showings Today
+        </p>
+    </div>
+    <div class="text-center">
+        <table class="table table-hover text-center">
+            <thead>
+                <tr class="text-light text-center">
+                    <th>
+                        @Html.DisplayNameFor(model => model.Movie.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ShowingDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Theatre)
+                    </th>
+                    <th>
+                        Buy Ticket
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-secondary text-center text-dark">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Movie.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ShowingDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Theatre)
+                        </td>
+                        <td>
+                            <form asp-controller="Order" asp-action="Create" asp-route-showingid="@item.ShowingID" method="post">
+                                <input type="submit" value="Buy a ticket!" class="btn btn-outline-info" />
+                            </form>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <h3 class="text-center text-danger">That's all for today, folks!</h3>
+    </div>
+
+    <!-- This is the slide show  comment out for now
+        <h2>
+            Slideshow Example
+        </h2>
+        <br />
+        <div class="text-center">
+            *****change the image on the CSS File and add new if necessry
+            <div class="simple-ss-1" alt="" title=""></div>
+            <div class="content-ss-1"></div>
+        </div>
+        <br />
+        <br /> -->
+
+</body>
+</html>

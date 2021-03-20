@@ -1,0 +1,99 @@
+@model FinalProjectWorkspace.Models.Movie
+
+@{ ViewData["Title"] = "Details"; }
+
+    <br />
+<h1 class="text-center text-danger">Details</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="card bg-secondary mb-3" style="max-width: 20rem;">
+    <div class="card-header">@Html.DisplayNameFor(model => model.Title)</div>
+    <div class="card-body">
+        <h4 class="card-title">Secondary card title</h4>
+        <p class="card-text">
+            @Html.DisplayFor(model => model.Title)
+        </p>
+    </div>
+</div>
+
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.Title)
+            </h5>
+            <small>3 days ago</small>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.Title)
+        </p>
+        <small>Donec id elit non mi porta.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small class="text-muted">3 days ago</small>
+        </div>
+        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <small class="text-muted">Donec id elit non mi porta.</small>
+    </a>
+</div>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Overview)
+        </dd>
+        <dd class="col-sm-3">
+            @Html.DisplayFor(model => model.Overview)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tagline)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayFor(model => model.Tagline)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MPAARating)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(model => model.MPAARating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayFor(model => model.Genre)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dd>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+    </dl>
+</div>
+<table class="table table-sm table-primary">
+    <tr>
+        <th>Showings Near You</th>
+    </tr>
+    @foreach (Showing p in Model.Showings)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => p.ShowingDate)</td>
+        </tr>
+    }
+</table>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MovieID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,34 @@
+@model FinalProjectWorkspace.Models.Price
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <br />
+<h1 class="text-center text-danger">Create New Price</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PriceName" class="control-label"></label>
+                <input asp-for="PriceName" class="form-control" />
+                <span asp-validation-for="PriceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PriceAmount" class="control-label"></label>
+                <input asp-for="PriceAmount" class="form-control" />
+                <span asp-validation-for="PriceAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Create" class="btn btn-outline-danger" />
+                <a class="btn btn-outline-primary" asp-action="Index">Back to Price List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

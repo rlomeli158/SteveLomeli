@@ -1,0 +1,34 @@
+@model FinalProjectWorkspace.Models.Genre
+
+@{
+    ViewData["Title"] = "Create a Genre";
+}
+
+<br />
+
+<h1 class="text-center text-danger">Create Genre</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GenreName" class="control-label"></label>
+                <input asp-for="GenreName" class="form-control" />
+                <span asp-validation-for="GenreName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-outline-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="text-center">
+    <a class="btn btn-outline-primary" asp-controller="Genre" asp-action="Index">Go to Genres Home</a>
+    <a class="btn btn-outline-primary" asp-controller="Movie" asp-action="Index">Go to Movie Home</a>
+    <a class="btn btn-outline-primary" asp-controller="Showing" asp-action="Index">Go to Movie Schedules</a>
+</div>
+

@@ -1,0 +1,14 @@
+﻿
+@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole("Manager"))
+    {
+        <h1 class="text-center">Congratulations!!</h1>
+        <p class="text-center">The data has been seeded!!</p>
+        <br />
+        <br />
+        <div class="text-center">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-success text-center">Go Back to the Home Page!</a>
+        </div>
+    }
+}

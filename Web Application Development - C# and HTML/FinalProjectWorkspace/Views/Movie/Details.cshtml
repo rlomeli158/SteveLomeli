@@ -1,0 +1,160 @@
+@model FinalProjectWorkspace.Models.Movie
+
+@{ ViewData["Title"] = "Movie Details"; }
+
+<br/>
+<h3 class="text-danger">
+    @Html.DisplayFor(model => model.Tagline)
+</h3>
+
+<div class="list-group">
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.Title)
+            </h5>
+            <small class="text-muted">
+                Released in @Html.DisplayFor(model => model.Year). Run Time: @Html.DisplayFor(model => model.RunTime)
+            </small>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.Title)
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.Overview)
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.Overview)
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.Actors)
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.Actors)
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                @Html.DisplayNameFor(model => model.MPAARating) & @Html.DisplayNameFor(model => model.Genre)
+            </h5>
+        </div>
+        <p class="mb-1">
+            @Html.DisplayFor(model => model.MPAARating) and
+            @Html.DisplayFor(model => model.Genre.GenreName)
+        </p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                Average Review Rating
+            </h5>
+        </div>
+        <p class="mb-1">
+            @{Double? avgReview = Model.MovieReviews.Where(r => r.ApprovalStatus == true).Average(m => m.Rating);}
+            @if (avgReview != null)
+            {
+                @avgReview
+            }
+            else
+            {
+                @:No Rating yet
+            }
+        </p>
+    </a>
+    @if (User.IsInRole("Manager"))
+    {
+        <a class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">
+                    @Html.DisplayNameFor(model => model.Revenue)
+                </h5>
+            </div>
+            <p class="mb-1">
+                @Html.DisplayFor(model => model.Revenue)
+            </p>
+        </a>
+    }
+
+
+</div>
+
+<table class="table table-hover text-center">
+    <tr class="text-light text-center">
+        <th>Showing Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Theatre</th>
+        <th>Special Event?</th>
+        <th>Purchase</th>
+    </tr>
+    @foreach (Showing p in Model.Showings)
+    {
+<tr class="table-secondary text-center text-dark">
+    @if (DateTime.Now < p.StartTime && p.Status == "Published")
+    {
+        <td>@Html.DisplayFor(modelItem => p.ShowingDate)</td>
+        <td>@Html.DisplayFor(modelItem => p.StartTime)</td>
+        <td>@Html.DisplayFor(modelItem => p.EndTime)</td>
+        <td>@Html.DisplayFor(modelItem => p.Theatre)</td>
+        <td>
+            @if (p.SpecialEvent == true)
+            {
+                @:Yes
+            }
+            else
+            {
+                @:No
+            }
+        </td>
+        <td>
+            <form asp-controller="Order" asp-action="Create" asp-route-showingid="@p.ShowingID" method="post">
+                <input type="submit" value="Buy a ticket!" class="btn btn-outline-info" />
+            </form>
+        </td>
+    }
+</tr>}
+</table>
+
+<h3 class="text-danger text-center">Movie Reviews</h3>
+<table class="table table-hover text-center">
+    <tr class="text-light text-center">
+        <th>Review Date</th>
+        <th>Rating</th>
+        <th>Description</th>
+    </tr>
+    @foreach (MovieReview mr in Model.MovieReviews)
+    {
+        <tr class="table-secondary text-center text-dark">
+            @if (mr.ApprovalStatus == true)
+            {
+                <td>@Html.DisplayFor(modelItem => mr.ReviewDate)</td>
+                <td>@Html.DisplayFor(modelItem => mr.Rating)</td>
+                <td>@Html.DisplayFor(modelItem => mr.ReviewDescription)</td>
+            }
+        </tr>
+}
+</table>
+
+<div class="text-center">
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @if (User.IsInRole("Manager"))
+        {
+            <a class="btn btn-outline-danger" asp-action="Edit" asp-route-id="@Model.MovieID">Edit</a>
+        }
+    }
+
+
+
+    <a class="btn btn-outline-primary" asp-action="DisplaySearchResults">Back to Movie Showings</a>
+</div>

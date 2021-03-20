@@ -1,0 +1,33 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+    <br />
+<h1 class="text-center text-danger">Login</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+<div class="text-center">
+    <div class="text-center">
+        <form  class="text-center" asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Login" class="btn btn-outline-success" />
+                <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="btn btn-outline-warning" asp-controller="Account" asp-action="Register">Register as New User</a>
+            </div>
+        </form>
+    </div>
+</div>
+

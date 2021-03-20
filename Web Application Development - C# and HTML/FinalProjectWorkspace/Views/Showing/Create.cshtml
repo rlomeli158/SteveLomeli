@@ -1,0 +1,53 @@
+@model FinalProjectWorkspace.Models.Showing
+
+@{
+    ViewData["Title"] = "Create a Showing";
+}
+
+    <br />
+<h1 class="text-center text-danger">Add Movie Showing</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Movie" class="control-label">Movie Title</label>
+                @Html.DropDownList("SelectedMovie", (SelectList)ViewBag.AllMovies, new { @class = "form-control" })
+                <span asp-validation-for="Movie" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ShowingDate" class="control-label"></label>
+                <input asp-for="ShowingDate" class="form-control" />
+                <span asp-validation-for="ShowingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartTime" class="control-label"></label>
+                <input asp-for="StartTime" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Theatre" class="control-label"></label>
+                @Html.DropDownList("SelectedTheatre", (SelectList)ViewBag.AllTheatres, new { @class = "form-control" })
+                <span asp-validation-for="Theatre" class="text-danger"></span>
+
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="SpecialEvent" /> @Html.DisplayNameFor(model => model.SpecialEvent)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-outline-danger" />
+                <a class="btn btn-outline-primary" asp-action="Index">Back to Movies Schedules</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

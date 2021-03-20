@@ -1,0 +1,72 @@
+@model FinalProjectWorkspace.Models.Showing
+
+@{
+    ViewData["Title"] = "Showing Details";
+}
+
+    <br />
+<h1 class="text-center text-danger">Details</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<div>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Movie.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Movie.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShowingDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShowingDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EndTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Theatre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Theatre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SeatsAvailable)
+        </dt>
+        @{Int32 seats = Model.SeatsAvailable.Count(); }
+        <dd class="col-sm-10">
+            @seats
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SpecialEvent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SpecialEvent)
+        </dd>
+    </dl>
+</div>
+<div class="text-center">
+
+    <form asp-controller="Order" asp-action="Create" method="post">
+        <input type="hidden" asp-for="ShowingID" />
+        <input type="submit" value="Start Your Order!" class="btn btn-outline-info" />
+        <a asp-action="Edit" asp-route-id="@Model.ShowingID" class="btn btn-outline-warning">Edit</a>
+    </form>
+
+    
+
+    <br />
+    <a asp-action="Index" class="btn btn-outline-danger">Back to List</a>
+</div>

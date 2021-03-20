@@ -1,0 +1,138 @@
+@model IEnumerable<FinalProjectWorkspace.Models.Showing>
+
+@{
+    ViewData["Title"] = "View All Showings";
+}
+
+    <br />
+<h1 class="text-center text-danger">Movie Schedule</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+
+<p class="text-center">
+    <a class="btn btn-outline-primary" asp-action="Create">Add Movie Showing</a>
+    <a class="btn btn-outline-success" asp-controller="Movie" asp-action="Create">Create New Movie</a>
+    <a class="btn btn-outline-info" asp-controller="Genre" asp-action="Create">Create New Genre</a>
+    <a class="btn btn-outline-danger" asp-action="Publish">Publish Schedules</a>
+    <a class="btn btn-outline-warning" asp-action="CopySchedule">Copy Schedules</a>
+
+
+</p>
+
+<form asp-action="Index" method="get" class="text-center">
+    <p class="form-group">
+        Select a Friday to View Showings for the Entire Week: <input name="StartingShowingDate" class="form-control" type="date" /><br />
+        Select a Date to View Showings: <input name="ShowingDate" class="form-control" type="date" />
+        <div>
+            Select the Theatre: <br />
+            <input type="radio" id="theatre1" name="theatre" value="theatre1">
+            <label for="theatre1">Theatre 1</label><br>
+            <input type="radio" id="theatre2" name="theatre" value="theatre2">
+            <label for="theatre2">Theatre 2</label><br>
+            <input type="radio" id="all" name="theatre" value="Both">
+            <label for="Both">Both</label><br>
+        </div>
+        <button type="submit" class="btn btn-outline-success">Search</button>
+        <a class="btn btn-outline-danger" href=@Url.Action("Index", "Showing", new { status = "All" })>Show All</a>
+        <a class="btn btn-outline-secondary" href=@Url.Action("Index", "Showing", new { status = "Unpublished" })>Show Unpublished</a>
+    </p>
+</form>
+
+<table class="table table-hover text-center">
+    <thead>
+        <tr class="text-light text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.Movie.Title)
+            </th>
+            <td>
+                @Html.DisplayNameFor(model => model.ShowingDate)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Theatre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeatsAvailable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpecialEvent)
+            </th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @if (User.IsInRole("Manager"))
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                }
+            }
+            <th></th>
+        </tr>
+    </thead>
+    @if (Model == null)
+    {
+
+    }
+    else
+    {
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-secondary text-center text-dark">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Movie.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShowingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Theatre)
+                    </td>
+                    @{Int32 seats = item.SeatsAvailable.Count(); }
+                    <td>
+                        @seats
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SpecialEvent)
+                    </td>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole("Manager"))
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                        }
+                    }
+                    <td>
+                        <span>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @if (User.IsInRole("Manager"))
+                                {
+                                    <a style="background-color: transparent;" asp-action="Edit" asp-route-id="@item.ShowingID">Edit | </a>
+                                    <a style="background-color: transparent;" asp-action="Delete" asp-route-id="@item.ShowingID">Delete</a>
+                                }
+                            }
+
+                            <a class="btn btn-outline-info" asp-controller="Movie" asp-action="Details" asp-route-id="@item.Movie.MovieID">Details</a>
+
+                        </span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    }
+
+</table>

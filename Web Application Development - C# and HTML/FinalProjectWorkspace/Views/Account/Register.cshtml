@@ -1,0 +1,133 @@
+﻿@model FinalProjectWorkspace.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+    <br />
+<h1 class="text-center text-danger">Register a New User</h1>
+<hr style="height:2px;border-width:0;color:#d0faff;background-color:#d0faff">
+<br />
+<div class="text-center">
+    <div class="text-center">
+        <form asp-action="Register" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <!--TODO: Add other required fields for registration here-->
+            <!--FirstName is included as an example-->
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MiddleInitial" class="control-label"></label>
+                <input asp-for="MiddleInitial" class="form-control" />
+                <span asp-validation-for="MiddleInitial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zip" class="control-label"></label>
+                <input asp-for="Zip" class="form-control" />
+                <span asp-validation-for="Zip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthday" class="control-label"></label>
+                <input asp-for="Birthday" class="form-control" />
+                <span asp-validation-summary="Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                @if (User.IsInRole("Manager"))
+                {
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input asp-for="AccountStatus" type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+                            <label asp-validation-for="AccountStatus" class="custom-control-label" for="customSwitch1">Active Status</label>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input asp-for="CustomerAccountType" type="checkbox" class="custom-control-input" id="customer" onclick="myFunction()">
+                            <label asp-validation-for="CustomerAccountType" class="custom-control-label" for="customer">Customer</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input asp-for="EmployeeAccountType" type="checkbox" class="custom-control-input" id="employee" onclick="myFunctionE()">
+                            <label asp-validation-for="EmployeeAccountType" class="custom-control-label" for="employee">Employee</label>
+                        </div>
+                    </div>
+                }
+
+            }
+
+            <div class="form-group text-center">
+                <input type="submit" value="Register" class="btn btn-outline-danger" />
+                <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Index">Home</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script>function myFunction() {
+        var checkBox = document.getElementById("customer");
+        var checkbox2 = document.getElementById("employee");
+
+        if (checkBox.checked == true) {
+            checkbox2.checked = false
+        }
+
+    }
+
+    function myFunctionE() {
+        var checkBox = document.getElementById("customer");
+        var checkbox2 = document.getElementById("employee");
+
+        if (checkbox2.checked == true) {
+            checkBox.checked = false
+
+        }
+    }</script>
